@@ -9,19 +9,18 @@
   },
   "dependencies": {
     "@2bad/bitrix": "^2.4.0",
+    "@types/react-input-mask": "^3.0.1",
     "@zeit/next-sass": "^1.0.1",
     "framer-motion": "^6.2.3",
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.2.1",
     "sass": "^1.49.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.13",
     "@types/react": "^17.0.38",
-    "@types/react-input-mask": "^3.0.1",
     "autoprefixer": "^10.4.2",
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.9",
