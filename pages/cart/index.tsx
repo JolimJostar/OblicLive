@@ -4,7 +4,6 @@ import TestButton from '@components/TestButton';
 import InputMask from 'react-input-mask';
 import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
-import { useNavigate } from 'react-router-dom';
 
 
 export default function Index({mouseOverEvent, mouseOutEvent}:any) {
@@ -71,7 +70,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
     return (
         <div className='px-[50px] pt-[27px] pb-[100px] flex flex-col font-main text-white'>
             <h1 className='mb-[50px] text-[80px] gradient-text w-max'>oblic | корзина</h1>
-            <form onSubmit={(e) => handleSumbmit(e)} className='flex flex-row justify-between relative'>
+            <form onSubmit={(e) => handleSumbmit(e)} className='relative flex flex-row justify-between'>
                 <div className='flex flex-col space-y-[50px]'>
                     <div className='flex flex-col space-y-[30px] w-[690px]'>
                         <h1>Давайте знакомиться</h1>
