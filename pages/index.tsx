@@ -19,14 +19,14 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
   return (
     <div ref={scrollRef} className=" grid grid-cols-simple2 w-[100vw] overflow-hidden pb-[100px] pt-[20px] ">
       <div className={`w-screen transition-all ease-in-out duration-1000 ${!active ? 'right-0' : 'right-[100vw]'}  pr-[50px] first-screen relative`}>
-        <div className='flex flex-row h-full justify-between'>
+        <div className='flex flex-row justify-between h-full'>
           <div className={` ${!active ? 'left-0' : 'left-[-200px]' } relative duration-1000 transition-all ease-in-out flex justify-center items-center opacity-50`}>
             <Image src="/MainPage.jpg" width={572} height={500} alt="Jewelery Image"/>
           </div>
           <div className={`${!active ? 'left-0' : 'left-[-150px]'} relative duration-1000 transition-all ease-in-out flex items-end`}>
             <ShowCaseItem mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[0]} />
           </div>
-          <div className="flex items-start justify-between flex-col relative">
+          <div className="relative flex flex-col items-start justify-between">
             <div className={`${!active ? 'left-0' : 'left-[-50px]'} relative duration-1000 transition-all ease-in-out flex items-end`}>
               <ShowCaseItem  mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[1]} />
             </div>
@@ -48,7 +48,7 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
             <Image src="/MainPageSecond.jpg" width={510} height={666} alt="Man in Jewelery Image"/>
           </div>
           <div className={`${active ? 'left-0' : 'left-[150px]'} transition-all duration-1000 ease-in-out flex items-start top-[30px] relative`}>
-            <ShowCaseItem mouseOverEvent={mouseOverEvent} onMouseLeave={mouseOutEvent} item={items[2]} />
+            <ShowCaseItem mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[2]} />
           </div>
           <div className={`${active ? 'left-0' : 'left-[200px]'} flex items-end bottom-[70px] relative transition-all duration-1000 ease-in-out`}>
             <ShowCaseItem mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[3]} />
