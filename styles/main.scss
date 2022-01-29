@@ -1,0 +1,238 @@
+@import "colors";
+@import "sizes";
+@import "fonts";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body {
+    &,
+    * {
+        cursor: none !important;      
+    }
+}
+
+button{
+  cursor: none;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $main-gray;
+}
+
+.main-button {
+  border: 1px solid $white;
+  color: $white;
+  padding: 10px 20px;
+  transition: 0.2s ease-in-out;
+  font-weight: $bold;
+  font-family: $main-font;
+  &:hover {
+    color: $main-gray;
+    background-color: $white;
+  }
+}
+
+.button-home {
+  font-size: $small;
+}
+
+.button-fiter {
+  padding: 5px 15px;
+  font-size: $mid;
+}
+
+.button-big {
+  padding: 10px 30px;
+  font-size: $big;
+}
+
+.rocksSelectHolder {
+  width: 265px;
+}
+
+.ItemContent {
+  padding: 86px 50px 50px 50px;
+}
+
+.ItemMainImage {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  transition: 0.5s ease-in-out all;
+  width: 500px;
+  height: 500px;
+}
+
+.Reposition {
+  transform: unset;
+  right: 160px;
+}
+
+.LeftPart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Tab {
+  color: $gray;
+  svg {
+    display: none;
+    transition: all 0.1s linear;
+  }
+}
+
+.Active {
+  color: $white;
+  svg {
+    display: initial;
+  }
+}
+
+.HarHolder {
+  display: flex;
+  column-gap: 50px;
+  .HarParam {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+}
+
+.RazmeriHolder {
+  width: 566px;
+}
+
+.RazmeriH1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Razmer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.RazmerP {
+  width: 40px;
+}
+
+.ActiveHar {
+  margin-top: 69px;
+}
+
+.ActiveHarH1 {
+  display: flex;
+}
+
+.activeDot{
+  background-color: white!important;
+}
+
+.Dot{
+  background-color: #555;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.outline-rock{
+  outline-offset: -1px!important;
+}
+
+.catalog-items-height{
+  max-height: calc(100vh - 319px);
+}
+
+.first-screen{
+  height: calc(100vh - 234px);
+}
+
+.MuiOutlinedInput-notchedOutline{
+  border: none;
+}
+
+.contact-bg{
+  background: linear-gradient(90deg, #161A16 0%, rgba(22, 26, 22, 0) 100%);
+}
+
+.w-fit{
+  width: fit-content;
+}
+
+.w-max{
+  width: max-content;
+}
+
+.gradient-text{
+  background: linear-gradient(90deg, transparent, #ffffff66, transparent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.full-height-without-navbar{
+  height: calc(100vh - 114px);
+}
+
+.success-bg{
+  background-color: rgba(41, 42, 45, 0.2);
+}
+
+.cursor-dot,
+.cursor-dot-outline {
+    z-index: 99999;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+    $size: 16px;
+    width: $size;
+    height: $size;
+    background-color: white;
+}
+
+.cursor-dot-outline {
+    $size: 40px;
+    width: $size;
+    height: $size;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.main-transition{
+  transition: cubic-bezier(.72,-0.02,.53,.92) 1s all;
+}
