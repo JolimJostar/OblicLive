@@ -177,7 +177,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                 onClick={() => resetFilter()} 
                                 className='hover:bg-white h-[32px] cursor-none hover:text-[#292A2D] transition-testAnim duration-200 max-h-[fit-content] px-[15px] py-[4px] border border-white text-white font-semibold font-main text-[16px] leading-[22px]'
                             >
-                                Сброс
+                                сбросить
                             </button>
                         </div>
                     </div>

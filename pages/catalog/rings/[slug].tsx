@@ -95,7 +95,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                   <h1 className="text-gray text-[25px] font-medium">Описание:</h1>
                   <p className="text-white font-normal text-[18px] max-w-[566px]">{item.desc}</p>
                 </div>
-                <div className="flex flex-col space-y-[25px]">
+                <div className="flex flex-col space-y-[25px] font-main">
                   <h1 className="text-gray text-[25px] font-medium">Характеристики:</h1>
                   <div className="text-white HarHolder">
                     <div className="HarParam">
