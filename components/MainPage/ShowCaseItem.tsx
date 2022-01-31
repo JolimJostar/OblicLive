@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function ShowCaseItem({item, mouseOverEvent, mouseOutEvent}:any) {
     return (
         <div className="flex justify-between flex-col h-[450px] 2xl:h-[540px]">
-          <div className='h-[388px] w-[309px] 2xl:w-[370px] 2xl:h-[465px]'>
+          <div className='h-[388px] w-[309px] 2xl:w-[370px] 2xl:h-[465px] relative'>
             <Image 
               loader={() => {
                 return `${item.attributes.cover.data.attributes.url}`;
@@ -15,6 +15,7 @@ export default function ShowCaseItem({item, mouseOverEvent, mouseOutEvent}:any) 
               width={309}
               height={388}
               layout='responsive'
+              objectFit='cover'
             />
           </div>
           <div className="flex flex-row justify-between font-main font-semibold pt-[25px] 2xl:pt-[30px]">

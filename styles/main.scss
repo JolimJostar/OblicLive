@@ -1,7 +1,7 @@
 @import "colors";
 @import "sizes";
 @import "fonts";
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Source+Sans+Pro:wght@400;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -89,7 +89,6 @@ body {
 }
 
 .LeftPart {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

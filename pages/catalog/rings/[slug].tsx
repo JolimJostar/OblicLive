@@ -39,7 +39,102 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       <div>
         {item === undefined ? <p>Загрузка</p> :
         
-        <div className=" px-[50px] pt-[86px] pb-[50px] flex flex-row justify-between">
+        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between">
+          
+          <div className="LeftPart">
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <div className={`${active === "name" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <Arrow />
+                  <button 
+                    onMouseEnter={mouseOverEvent} 
+                    onMouseLeave={mouseOutEvent} 
+                    onClick={() => SetActive("name")} 
+                    className='cursor-none'
+                  >
+                    {item.name}
+                  </button>
+                </div>
+                <div className={`${active === "har" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <Arrow />
+                  <button 
+                    onMouseEnter={mouseOverEvent} 
+                    onMouseLeave={mouseOutEvent}
+                    onClick={() => SetActive("har")}
+                    className='cursor-none'
+                  >
+                    Характеристики
+                  </button>
+                </div> 
+                <div className={`${active === "setka" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <Arrow />
+                  <button 
+                    onMouseEnter={mouseOverEvent} 
+                    onMouseLeave={mouseOutEvent}
+                    onClick={() => SetActive("setka")} 
+                    className='cursor-none'
+                  >
+                    Размерная сетка
+                  </button>
+                </div>
+              </div>
+              {active === "name" && (
+                <div>
+                  <Rocks 
+                    mouseOverEvent={mouseOverEvent} 
+                    mouseOutEvent={mouseOutEvent} 
+                    rocksData={item.rocks.data} 
+                    setRock={setRock} 
+                  />
+                </div>
+              )}
+            </div>
+            {active === "har" && (
+              <div className="ActiveHar flex flex-col space-y-[46px] max-w-[566px]">
+                <div className="flex flex-col space-y-[25px] font-main ">
+                  <h1 className="text-gray text-[25px] font-medium">Описание:</h1>
+                  <p className="text-white font-normal text-[18px] max-w-[566px]">{item.desc}</p>
+                </div>
+                <div className="flex flex-col space-y-[25px]">
+                  <h1 className="text-gray text-[25px] font-medium">Характеристики:</h1>
+                  <div className="text-white HarHolder">
+                    <div className="HarParam">
+                      <h1 className='font-semibold text-[18px]'>Металл:</h1>
+                      <p className='font-normal text-[16px]'>{item.metal.data.attributes.name ? `${item.metal.data.attributes.name}` : ''}</p>
+                    </div>
+                    <div className="HarParam">
+                      <h1 className='font-semibold text-[18px]'>Камень:</h1>
+                      <p className='font-normal text-[16px]'>Чёрный агат</p>
+                    </div>
+                    <div className="HarParam">
+                      <h1 className='font-semibold text-[18px]'>Размер:</h1>
+                      <p className='font-normal text-[16px]'>15 – 26</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {active === "setka" && (
+              <div className="RazmeriHolder text-white mt-[50px]">
+                <div className="RazmeriH1 font-main font-semibold text-[16px]">
+                  <h1>Размер российский</h1>
+                  <h1>Размер европейский</h1>
+                </div>
+                <div className="Razmeri mt-[25px]">
+                  {item.ring_sizes.data.map((size: any) => (
+                    <div
+                      className="Razmer border-b-[1px] border-[#555] font-main font-normal text-[18px] py-[6px]"
+                      key={size.id}
+                    >
+                      <p className="RazmerP">{size.attributes.size.toString().replace(/\./g, ',')}</p>
+                      <p className="RazmerP">{size.attributes.sizeEU.toString().replace(/\./g, ',')}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+                  )}
+          </div>
+
           <div
             className={
               active === "name" ? "ItemMainImage" : "ItemMainImage Reposition"
@@ -53,102 +148,14 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
               height={500}
             />
           </div>
-          <div className="LeftPart">
-            <div className="Tabs">
-              <div className={`${active === "name" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center`}>
-                <Arrow />
-                <button 
-                  onMouseEnter={mouseOverEvent} 
-                  onMouseLeave={mouseOutEvent} 
-                  onClick={() => SetActive("name")} 
-                  className='cursor-none'
-                >
-                  {item.name}
-                </button>
-              </div>
-              <div className={`${active === "har" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center`}>
-                <Arrow />
-                <button 
-                  onMouseEnter={mouseOverEvent} 
-                  onMouseLeave={mouseOutEvent}
-                  onClick={() => SetActive("har")}
-                  className='cursor-none'
-                >
-                  Характеристики
-                </button>
-              </div> 
-              <div className={`${active === "setka" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center`}>
-                <Arrow />
-                <button 
-                  onMouseEnter={mouseOverEvent} 
-                  onMouseLeave={mouseOutEvent}
-                  onClick={() => SetActive("setka")} 
-                  className='cursor-none'
-                >
-                  Размерная сетка
-                </button>
-              </div>
-              {active === "name" && (
-                <div className="mt-[290px]">
-                  <Rocks 
-                    mouseOverEvent={mouseOverEvent} 
-                    mouseOutEvent={mouseOutEvent} 
-                    rocksData={item.rocks.data} 
-                    setRock={setRock} 
-                  />
-                </div>
-              )}
-            </div>
-            {active === "har" && (
-              <div className="ActiveHar flex flex-col space-y-[46px] max-w-[566px]">
-                <div className="flex flex-col space-y-[25px] font-main ">
-                  <h1 className="text-gray">Описание:</h1>
-                  <p className="text-white">{item.desc}</p>
-                </div>
-                <div className="flex flex-col space-y-[25px]">
-                  <h1 className="text-gray">Характеристики:</h1>
-                  <div className="text-white HarHolder">
-                    <div className="HarParam">
-                      <h1>Металл:</h1>
-                      <p>{item.metal.data.attributes.name ? `${item.metal.data.attributes.name}` : ''}</p>
-                    </div>
-                    <div className="HarParam">
-                      <h1>Камень:</h1>
-                      <p>Чёрный агат</p>
-                    </div>
-                    <div className="HarParam">
-                      <h1>Размер:</h1>
-                      <p>15 – 26</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-            {active === "setka" && (
-              <div className="RazmeriHolder text-white mt-[50px]">
-                <div className="RazmeriH1">
-                  <h1>Размер российский</h1>
-                  <h1>Размер европейский</h1>
-                </div>
-                <div className="Razmeri">
-                  {item.ring_sizes.data.map((size: any) => (
-                    <div
-                      className="Razmer border-b-[1px] border-white"
-                      key={size.id}
-                    >
-                      <p className="RazmerP">{size.attributes.size.toString().replace(/\./g, ',')}</p>
-                      <p className="RazmerP">{size.attributes.sizeEU.toString().replace(/\./g, ',')}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-                  )}
+          <div className='relative h-[calc(100vh-300px)] min-h-[500px] w-1 opacity-0'> {/* Этот блок нужен, что бы ровнять высоту родительского блока для адаптивности. Этот блок должен быть высотой с основную картинку */}
           </div>
           {active === "name" && (
-            <div className="text-white font-semibold text-[16px]">
+            <div className="text-white font-semibold text-[16px] flex flex-col justify-between">
               <h1 className="text-right text-[25px] font-medium">₽ {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h1>
-              <div className="LeftPartBottom mt-[300px] w-[304px] flex flex-col space-y-[30px]">
+              <div className="LeftPartBottom w-[304px] flex flex-col space-y-[30px]">
                   <div className="RazmerChouseHolder">
+                    <p className='mb-[10px]'>размер</p>
                     <SizeChouser 
                       mouseOverEvent={mouseOverEvent} 
                       mouseOutEvent={mouseOutEvent} 

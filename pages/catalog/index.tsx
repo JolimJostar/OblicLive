@@ -211,7 +211,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                 </div>
             </div>
             <div style={{'height': height}} className={` absolute  left-[-160px]  top-[506px]  font-main font-light text-[80px] leading-[109px]`}>
-                <h1 className='gradient-text sticky top-[358px] -rotate-90'>oblic | каталог</h1>
+                <h1 className='gradient-text sticky top-[358px] -rotate-90 font-light'>oblic | каталог</h1>
             </div>
         </React.Fragment>
     )

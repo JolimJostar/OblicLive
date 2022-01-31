@@ -63,7 +63,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       <div>
         {item === undefined ? <p>Загрузка</p> :
         
-        <div className=" px-[50px] pt-[200px] pb-[50px] flex flex-row justify-between">
+        <div className=" px-[50px] pt-[200px] flex flex-row justify-between">
           <div
             className={
               active === "name" ? "ItemMainImage" : "ItemMainImage Reposition"
