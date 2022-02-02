@@ -39,7 +39,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       <div>
         {item === undefined ? <p>Загрузка</p> :
         
-        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between">
+        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between font-main">
           
           <div className="LeftPart">
             <div className="flex flex-col justify-between h-full">

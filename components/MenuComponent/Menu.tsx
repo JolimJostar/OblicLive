@@ -46,7 +46,7 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
 
     return (
         <React.Fragment>
-            <div className={` transition-all duration-700 ease-in-out flex flex-row items-end bg-mainGray z-30 h-[114px] relative top-0${/*visible ? 'top-0' : 'top-[-114px]'*/''} left-0 w-full px-[50px] pb-[30px]`}>
+            <div className={`font-main transition-all duration-700 ease-in-out flex flex-row items-end bg-mainGray z-30 h-[114px] relative top-0${/*visible ? 'top-0' : 'top-[-114px]'*/''} left-0 w-full px-[50px] pb-[30px]`}>
                 <div className="flex flex-row items-center justify-between w-full h-34px">
                     <div className="flex flex-row items-center">
                         <Link href="/" >
@@ -55,7 +55,7 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
                                     <svg width="30" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.274146 15.0997L11.5 0.500002L22.6088 15.0997L11.5 29.5L0.274146 15.0997Z" fill="white"/>
                                     </svg>
-                                    <p className="relative bottom-[3px]  font-main text-white font-semibold text-[30px]">oblic</p>
+                                    <p className="relative bottom-[3px]  font-main text-white font-semibold text-[30px] leading-[34px]">oblic</p>
                                 </div>
                             </a>
                         </Link>
@@ -63,7 +63,7 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
                             <Link href='/catalog'>
                                 <a onClick={() => setActive(false)} onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent}>
                                     <div className="h-full border-b border-transparent transition-all ease-in-out duration-100 hover:border-white mb-[-1px]  flex flex-row items-center font-semibold text-[20px] text-white space-x-[15px]">
-                                        <p className="h-full relative translate-y-[-10%] ">каталог</p>
+                                        <p className="h-full relative translate-y-[-10%]">каталог</p>
                                         <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="2.5" cy="3" r="2.5" fill="white"/>
                                             <circle cx="13.5" cy="3" r="2.5" fill="white"/>

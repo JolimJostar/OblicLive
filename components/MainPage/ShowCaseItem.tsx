@@ -19,7 +19,7 @@ export default function ShowCaseItem({item, mouseOverEvent, mouseOutEvent}:any) 
             />
           </div>
           <div className="flex flex-row justify-between font-main font-semibold mt-[25px] 2xl:pt-[30px]">
-            <p className="text-white text-[18px]">{item.attributes.name}</p>
+            <p className="text-white text-[18px] leading-[25px]">{item.attributes.name}</p>
             <Link href={`catalog/${item.attributes.ring_sizes ? 'rings' : item.attributes.chain_lenghts ? 'chains' : 'earrings' }/${item.attributes.slug}`}>
               <a 
                 onClick={mouseOutEvent} 

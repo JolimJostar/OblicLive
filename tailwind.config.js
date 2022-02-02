@@ -25,7 +25,7 @@ module.exports = {
         big: "18px",
       },
       fontFamily: {
-        main: ["Manrope", "sans-serif"],
+        main: ["Manrope"],
       },
       border: {
         rock: '1px solid #292A2D',
