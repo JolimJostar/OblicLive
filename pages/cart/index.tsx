@@ -1,12 +1,15 @@
 import CartItem from '@components/Cart/CartItem';
 import CartChose from '@components/CartDostavka/CartChose'
+import {Context} from '@components/GlobalState/store'
 import TestButton from '@components/TestButton';
-import InputMask from 'react-input-mask';
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
+import FormNameEmailPhone from '@components/Cart/FormNameEmailPhone';
 
 
 export default function Index({mouseOverEvent, mouseOutEvent}:any) {
+
+    const [state, dispatch] = useContext<any>(Context)
 
     function handleSumbmit(e:any){
         e.preventDefault();
@@ -14,6 +17,13 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
         temp.itemsInCart = itemsInCart
         temp.summ = summ
         sendZakaz(temp)
+        dispatch({type: "setItems",payload: []})
+    }
+
+    function deleteItemFromCart(itemID:any){
+        const temp = [...itemsInCart].filter(item => item.id !== itemID)
+        dispatch({type: "setItems",payload: temp})
+        setItemsInCart(temp)
     }
 
     async function sendZakaz(data:any){
@@ -72,60 +82,12 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
             <h1 className='mb-[50px] text-[80px] gradient-text w-max'>oblic | корзина</h1>
             <form onSubmit={(e) => handleSumbmit(e)} className='relative flex flex-row justify-between'>
                 <div className='flex flex-col space-y-[50px]'>
-                    <div className='flex flex-col space-y-[30px] w-[690px]'>
-                        <h1>Давайте знакомиться</h1>
-                        <div className='grid grid-cols-3'>
-                            <div className='flex flex-col space-y-[10px]'>
-                                <p>Имя</p>
-                                <input
-                                    onMouseEnter={mouseOverEvent} 
-                                    onMouseLeave={mouseOutEvent} 
-                                    className='pr-[20px] outline-none' 
-                                    type="text" 
-                                    placeholder='Ваше имя' 
-                                    onChange={(event:any) => {
-                                        const temp = {...inputValues}
-                                        temp.name = event.target.value
-                                        setInputValues(temp)
-                                    }}
-                                    required
-                                />
-                            </div>
-                            <div className='flex flex-col space-y-[10px]'>
-                                <p>Телефон</p>
-                                <InputMask
-                                    onMouseEnter={mouseOverEvent} 
-                                    onMouseLeave={mouseOutEvent} 
-                                    mask="+7 (999) 999 99-99"
-                                    className='pr-[20px] outline-none' 
-                                    type="tel" 
-                                    placeholder='+7 (___) ___ __-__' 
-                                    onChange={(event:any) => {
-                                        const temp = {...inputValues}
-                                        temp.phone = event.target.value
-                                        setInputValues(temp)
-                                    }}
-                                    required
-                                />
-                            </div>
-                            <div className='flex flex-col space-y-[10px]'>
-                                <p>E-mail</p>
-                                <input 
-                                    onMouseEnter={mouseOverEvent} 
-                                    onMouseLeave={mouseOutEvent} 
-                                    className='pr-[20px] outline-none' 
-                                    type="email" 
-                                    placeholder='Ваш e-mail' 
-                                    onChange={(event:any) => {
-                                        const temp = {...inputValues}
-                                        temp.email = event.target.value
-                                        setInputValues(temp)
-                                    }}
-                                    required
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <FormNameEmailPhone 
+                        mouseOverEvent={mouseOverEvent} 
+                        mouseOutEvent={mouseOutEvent} 
+                        inputValues={inputValues} 
+                        setInputValues={setInputValues} 
+                    />
                     {summ < 60000 ? 
                         <div className='flex flex-col space-y-[30px]'>
                             <h1>Доставка</h1>
@@ -188,13 +150,13 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                 </div>
                 <div className='w-[404px]'>
                     <h1 className='mb-[30px]'>Ваш заказ</h1>
-                    <div>
+                    <div className='flex flex-col space-y-[20px]'>
                         {itemsInCart.map((item:any) => (
-                        <CartItem key={Math.random()} item={item} />
+                        <CartItem deleteItemFromCart={deleteItemFromCart} item={item} />
                         ))}
                         
                     </div>
-                    <div className='flex flex-row justify-between'>
+                    <div className='flex flex-row justify-between mt-[50px]'>
                         <h3>Всего:</h3>
                         <p>₽ {summ.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                     </div>
@@ -206,7 +168,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                         type='submit' 
                         className='hover:bg-white hover:text-[#161A16] border border-white px-[30px] py-[10px]'
                     >
-                        {summ < 60000 ? 'Оформить заказ' : 'Отправить запрос на покупку'}
+                        {summ < 60000 ? 'Оформить заказ' : 'Оформить запрос на покупку'}
                     </button>
                 </div>
             </form>

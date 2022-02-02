@@ -43,8 +43,8 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
           
           <div className="LeftPart">
             <div className="flex flex-col justify-between h-full">
-              <div>
-                <div className={`${active === "name" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+              <div className='flex flex-col space-y-[15px]'>
+                <div className={`${active === "name" ? "Tab Active" : "Tab"} h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
                   <Arrow />
                   <button 
                     onMouseEnter={mouseOverEvent} 
@@ -55,7 +55,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                     {item.name}
                   </button>
                 </div>
-                <div className={`${active === "har" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                <div className={`${active === "har" ? "Tab Active" : "Tab"} h-[25px] flex-col-reverseflex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
                   <Arrow />
                   <button 
                     onMouseEnter={mouseOverEvent} 
@@ -66,7 +66,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                     Характеристики
                   </button>
                 </div> 
-                <div className={`${active === "setka" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                <div className={`${active === "setka" ? "Tab Active" : "Tab"} h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
                   <Arrow />
                   <button 
                     onMouseEnter={mouseOverEvent} 
@@ -148,8 +148,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
               height={500}
             />
           </div>
-          <div className='relative h-[calc(100vh-300px)] min-h-[500px] w-1 opacity-0'> {/* Этот блок нужен, что бы ровнять высоту родительского блока для адаптивности. Этот блок должен быть высотой с основную картинку */}
-          </div>
           {active === "name" && (
             <div className="text-white font-semibold text-[16px] flex flex-col justify-between">
               <h1 className="text-right text-[25px] font-medium">₽ {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h1>
@@ -212,6 +210,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                       onClick={() => {
                         if (item){
                           const newItemInCart = {
+                            id: Math.random(),
                             name: item.name,
                             price: item.price,
                             size: size,

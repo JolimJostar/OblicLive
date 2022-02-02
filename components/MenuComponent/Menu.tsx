@@ -50,7 +50,7 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
                 <div className="flex flex-row items-center justify-between w-full h-34px">
                     <div className="flex flex-row items-center">
                         <Link href="/" >
-                            <a onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent}>
+                            <a onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent} onClick={() => setActive(false)} >
                                 <div className="flex flex-row space-x-[10px] items-center">
                                     <svg width="30" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.274146 15.0997L11.5 0.500002L22.6088 15.0997L11.5 29.5L0.274146 15.0997Z" fill="white"/>
@@ -156,6 +156,7 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
                             alt="Menu Picture"
                             width={750}
                             height={350}
+                            quality={100}
                         />
                     </div>
                 </div>

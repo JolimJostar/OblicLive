@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import Image from "next/image";
+import TestButton from '@components/TestButton';
 
-export default function CartItem({item}:any) {
+const CartItem = React.memo(function CartItem({item, deleteItemFromCart}:any) {
 
     
 
@@ -10,7 +11,7 @@ export default function CartItem({item}:any) {
     }
 
     return (
-        <div className='flex flex-row space-x-[15px]'>
+        <div key={Math.random()} className='flex flex-row space-x-[15px] h-[89px] relative'>
             <div>
                 <Image
                     loader={myLoader}
@@ -36,6 +37,9 @@ export default function CartItem({item}:any) {
                     <p>{item.amount}</p>
                 </div>
             </div>
+            <button className='absolute top-0 right-0' onClick={() => deleteItemFromCart(item.id)}>X</button>
         </div>
     )
-}
+})
+
+export default CartItem
