@@ -152,7 +152,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                     <h1 className='mb-[30px]'>Ваш заказ</h1>
                     <div className='flex flex-col space-y-[20px]'>
                         {itemsInCart.map((item:any) => (
-                        <CartItem deleteItemFromCart={deleteItemFromCart} item={item} />
+                        <CartItem key={item.id} deleteItemFromCart={deleteItemFromCart} item={item} />
                         ))}
                         
                     </div>

@@ -11,7 +11,7 @@ const CartItem = React.memo(function CartItem({item, deleteItemFromCart}:any) {
     }
 
     return (
-        <div key={Math.random()} className='flex flex-row space-x-[15px] h-[89px] relative'>
+        <div className='flex flex-row space-x-[15px] h-[89px] relative'>
             <div>
                 <Image
                     loader={myLoader}
