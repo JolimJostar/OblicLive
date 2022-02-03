@@ -39,13 +39,17 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       <div>
         {item === undefined ? <p>Загрузка</p> :
         
-        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between font-main">
+        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between font-main h-[calc(100vh-114px)]">
           
           <div className="LeftPart">
-            <div className="flex flex-col justify-between h-full">
+            <div className="flex flex-col justify-between">
               <div className='flex flex-col space-y-[15px]'>
-                <div className={`${active === "name" ? "Tab Active" : "Tab"} h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
-                  <Arrow />
+                <div className={`${active === "name" ? "text-white" : "text-gray"} transition-all duration-500 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <div className='overflow-hidden w-[10px] h-[15px]'>
+                    <div className={`${active === "name" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
+                      <Arrow />
+                    </div>
+                  </div>
                   <button 
                     onMouseEnter={mouseOverEvent} 
                     onMouseLeave={mouseOutEvent} 
@@ -55,8 +59,12 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                     {item.name}
                   </button>
                 </div>
-                <div className={`${active === "har" ? "Tab Active" : "Tab"} h-[25px] flex-col-reverseflex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
-                  <Arrow />
+                <div className={`${active === "har" ? "text-white" : "text-gray"} flex transition-all duration-300 ease-in-out h-[25px] flex-col-reverseflex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <div className='overflow-hidden w-[10px] h-[15px]'>
+                    <div className={`${active === "har" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
+                      <Arrow />
+                    </div>
+                  </div>
                   <button 
                     onMouseEnter={mouseOverEvent} 
                     onMouseLeave={mouseOutEvent}
@@ -66,8 +74,12 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                     Характеристики
                   </button>
                 </div> 
-                <div className={`${active === "setka" ? "Tab Active" : "Tab"} h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
-                  <Arrow />
+                <div className={`${active === "setka" ? "text-white" : "text-gray"} transition-all duration-300 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <div className='overflow-hidden w-[10px] h-[15px]'>
+                    <div className={`${active === "setka" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
+                      <Arrow />
+                    </div>
+                  </div>
                   <button 
                     onMouseEnter={mouseOverEvent} 
                     onMouseLeave={mouseOutEvent}
@@ -78,18 +90,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                   </button>
                 </div>
               </div>
-              {active === "name" && (
-                <div>
-                  <Rocks 
-                    mouseOverEvent={mouseOverEvent} 
-                    mouseOutEvent={mouseOutEvent} 
-                    rocksData={item.rocks.data} 
-                    setRock={setRock} 
-                  />
-                </div>
-              )}
-            </div>
-            {active === "har" && (
+              {active === "har" && (
               <div className="ActiveHar flex flex-col space-y-[46px] max-w-[566px]">
                 <div className="flex flex-col space-y-[25px] font-main ">
                   <h1 className="text-gray text-[25px] font-medium">Описание:</h1>
@@ -133,12 +134,21 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                 </div>
               </div>
                   )}
+            </div>
+            {active === "name" && (
+                <div>
+                  <Rocks 
+                    mouseOverEvent={mouseOverEvent} 
+                    mouseOutEvent={mouseOutEvent} 
+                    rocksData={item.rocks.data} 
+                    setRock={setRock} 
+                  />
+                </div>
+              )}
           </div>
 
           <div
-            className={
-              active === "name" ? "ItemMainImage" : "ItemMainImage Reposition"
-            }
+            className={`${active === "name" ? "left-[50%]" : "left-[calc(50%+310px)]"} absolute top-[50%] -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out w-[500px] h-[500px] `}
           >
             <Image
               loader={myLoader}

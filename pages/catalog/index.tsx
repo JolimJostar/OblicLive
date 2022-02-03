@@ -133,12 +133,12 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
 
     return (
         <React.Fragment >
-            <div className={`pl-[220px] pr-[20px] transition-all duration-700 ease-in-out pb-[50px] flex flex-col space-y-[50px]`}>
-                <div className={` sticky top-[0] transition-all duration-700 ease-in-out z-20 bg-mainGray h-[132px] pt-[30px] w-full ${active && 'w-screen'}`}>
+            <div className={`pl-[223px] pr-[20px] transition-all duration-700 ease-in-out pb-[50px] flex flex-col space-y-[20px]`}>
+                <div className={` sticky top-[0] transition-all duration-700 ease-in-out z-20 bg-mainGray h-[132px] pt-[27px] w-full ${active && 'w-screen'}`}>
                     <div className={`flex flex-row justify-between max-w-[1170px] w-full `}>
                         <div className={`flex flex-row space-x-[100px] transition-all duration-700 ease-in-out ${active ? 'relative right-[180px]' : 'relative right-0'}`}>
                             <div className='flex flex-col space-y-[15px]' >
-                                <p className='text-gray font-semibold text-[18px] font-main'>категория:</p>
+                                <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>категория:</p>
                                 <TypeFilter 
                                     mouseOverEvent={mouseOverEvent} 
                                     mouseOutEvent={mouseOutEvent} 
@@ -147,7 +147,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                 />
                             </div>
                             <div className='flex flex-col space-y-[15px]'>
-                                <p className='text-gray font-semibold text-[18px] font-main'>стоимость:</p>
+                                <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>стоимость:</p>
                                 <PriceFilter 
                                     mouseOverEvent={mouseOverEvent} 
                                     mouseOutEvent={mouseOutEvent}
@@ -158,7 +158,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                 />
                             </div>
                             <div className='flex flex-col space-y-[15px]'>
-                                <p className='text-gray font-semibold text-[18px] font-main'>{typeOfFilter !== 'цепь' ? 'размер:' : 'длинна цепи:'}</p>
+                                <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>{typeOfFilter !== 'цепь' ? 'размер:' : 'длинна цепи:'}</p>
                                 <SizeFilter 
                                     ringsSizes={ringsSizes}
                                     chainsSizes={chainsSizes}
@@ -182,7 +182,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                         </div>
                     </div>
                 </div>
-                <div ref={ref} className="flex flex-wrap space-y-reverse space-x-reverse space-y-[50px] space-x-[30px]">
+                <div ref={ref} className="flex flex-wrap w-[calc(100%+30px)] space-y-reverse space-x-reverse space-y-[50px] space-x-[30px]">
                     {filteredItems ? filteredItems.map((item:any, id:any) => 
                             <div key={item.attributes.slug} className={id === 0 ? 'mr-[30px] mb-[50px]' : ''}>
                                 <div className="relative text-[0px]">
@@ -190,8 +190,8 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                         loader={myLoader}
                                         src={item.attributes.cover.data.attributes.url}
                                         alt="Landscape picture"
-                                        width={370}
-                                        height={370}
+                                        width={369}
+                                        height={369}
                                     />
                                     <Link href={`catalog/${item.attributes.ring_sizes ? 'rings' : item.attributes.chain_sizes ? 'chains' : 'earrings' }/${item.attributes.slug}`}>
                                         <a onClick={mouseOutEvent} onMouseEnter={mouseOverEvent} onMouseLeave={mouseOutEvent}>
@@ -210,7 +210,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                     ) : <h1 className='text-white'>Something wrong with the server</h1>}
                 </div>
             </div>
-            <div style={{'height': height}} className={` absolute  left-[-160px]  top-[506px]  font-main font-light text-[80px] leading-[109px]`}>
+            <div style={{'height': height}} className={` absolute  left-[-155px]  top-[470px]  font-main font-light text-[80px] leading-[109px]`}>
                 <h1 className='gradient-text sticky top-[358px] -rotate-90 font-light'>oblic | каталог</h1>
             </div>
         </React.Fragment>

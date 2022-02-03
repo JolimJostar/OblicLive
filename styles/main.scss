@@ -92,20 +92,7 @@ body {
   justify-content: space-between;
 }
 
-.Tab {
-  color: $gray;
-  svg {
-    display: none;
-    transition: all 0.1s linear;
-  }
-}
 
-.Active {
-  color: $white;
-  svg {
-    display: initial;
-  }
-}
 
 .HarHolder {
   display: flex;
