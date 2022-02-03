@@ -37,7 +37,7 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
             <div className={`${!active ? 'left-0' : 'left-[-50px]'} relative duration-1000 transition-all ease-in-out flex items-end`}>
               <ShowCaseItem  mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[1]} />
             </div>
-            <div className={`relative ml-auto mt-[20px] ${!active ? 'bottom-0' : 'bottom-[-200px]'} top-[5px] duration-1000 ease-in-out transition-all right-0`}>
+            <div onMouseEnter={mouseOverEvent} onMouseLeave={mouseOutEvent} onClick={() => setActive(true)} className={`relative ml-auto mt-[20px] ${!active ? 'bottom-0' : 'bottom-[-200px]'} top-[5px] duration-1000 ease-in-out transition-all right-0`}>
               <p className="mb-[20px] text-white font-medium font-main text-[20px] leading-[27px]">Листай<br></br>дальше</p>
               <svg width="51" height="22" viewBox="0 0 51 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M41.1117 0.437513L50.5649 9.94375C51.145 10.5271 51.145 11.4729 50.5649 12.0562L41.1117 21.5625C40.5316 22.1458 39.591 22.1458 39.0109 21.5625C38.4308 20.9791 38.4308 20.0333 39.0109 19.45L45.9284 12.4938H0V9.50624H45.9284L39.0109 2.55001C38.4308 1.96666 38.4308 1.02086 39.0109 0.437513C39.591 -0.145838 40.5316 -0.145838 41.1117 0.437513Z" fill="white"/>
