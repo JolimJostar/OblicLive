@@ -79,7 +79,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
 
     return (
         <div className='px-[50px] pt-[27px] pb-[100px] flex flex-col font-main text-white'>
-            <h1 className='mb-[50px] text-[80px] gradient-text w-max'>oblic | корзина</h1>
+            <h1 className='mb-[50px] text-[80px] gradient-text w-max font-light leading-[109px]'>oblic | корзина</h1>
             <form onSubmit={(e) => handleSumbmit(e)} className='relative flex flex-row justify-between'>
                 <div className='flex flex-col space-y-[50px]'>
                     <FormNameEmailPhone 
@@ -90,10 +90,10 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                     />
                     {summ < 60000 ? 
                         <div className='flex flex-col space-y-[30px]'>
-                            <h1>Доставка</h1>
-                            <div className='grid grid-cols-3'>
+                            <h1 className='font-medium text-[25px] leading-[34px]'>Доставка</h1>
+                            <div className='flex space-x-[150px] items-end'>
                                 <div className='flex flex-col space-y-[10px] w-[152px]'>
-                                    <p>Способ доставки</p>
+                                    <p className='font-semibold text-[18px] leading-[25px]'>Способ доставки</p>
                                     <CartChose  
                                         mouseOverEvent={mouseOverEvent} 
                                         mouseOutEvent={mouseOutEvent} 
@@ -104,14 +104,14 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                                     />
                                 </div>
                                 {value === 'Самовывоз' ? 
-                                    <div className='text-[18px] text-gray'>
+                                    <div className='text-[18px] text-gray relative left-[-50px] leading-[25px] font-medium'>
                                         <p>*Самовывоз по адресу: <br /> Большой Трехсвятительский переулок, 2/1 с.8, Москва, 109028</p>
                                     </div>
                                     
                                     : 
                                     <React.Fragment >
                                         <div className='flex flex-col space-y-[10px]'>
-                                            <p>Город</p>
+                                            <p className='font-semibold text-[18px] leading-[25px]'>Город</p>
                                             <input 
                                                 onMouseEnter={mouseOverEvent} 
                                                 onMouseLeave={mouseOutEvent} 
@@ -127,7 +127,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                                             />
                                         </div>
                                         <div className='flex flex-col space-y-[10px]'>
-                                            <p>Адрес</p>
+                                            <p className='font-semibold text-[18px] leading-[25px]'>Адрес</p>
                                             <input 
                                                 onMouseEnter={mouseOverEvent} 
                                                 onMouseLeave={mouseOutEvent} 
@@ -151,7 +151,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                     }
                 </div>
                 <div className='w-[404px]'>
-                    <h1 className='mb-[30px]'>Ваш заказ</h1>
+                    <h1 className='mb-[30px] text-[25px] font-medium leading-[34px]'>Ваш заказ</h1>
                     <div className='flex flex-col space-y-[20px]'>
                         {itemsInCart.map((item:any) => (
                             <div key={Math.random()}>
@@ -160,22 +160,22 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                         ))}
                         
                     </div>
-                    <div className='flex flex-row justify-between mt-[50px]'>
+                    <div className='flex flex-row justify-between mt-[50px] font-medium text-[20px] leading-[27px]'>
                         <h3>Всего:</h3>
                         <p>₽ {summ.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                     </div>
                 </div>
-                <div className='absolute left-0 bottom-[-150px]'>
+            </form>
+            <div className='absolute left-50 bottom-[100px]'>
                     <button 
                         onMouseEnter={mouseOverEvent} 
                         onMouseLeave={mouseOutEvent} 
                         type='submit' 
-                        className='hover:bg-white hover:text-[#161A16] border border-white px-[30px] py-[10px]'
+                        className='hover:bg-white hover:text-[#161A16] border border-white px-[30px] py-[10px] font-semibold text-[18px] leading-[24px] font-main'
                     >
                         {summ < 60000 ? 'Оформить заказ' : 'Оформить запрос на покупку'}
                     </button>
                 </div>
-            </form>
         </div>
     )
 }

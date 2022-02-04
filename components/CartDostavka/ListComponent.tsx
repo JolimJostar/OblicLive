@@ -31,7 +31,7 @@ export default function ListComponent({active, list, value, setValue, setActive,
                         <li    
                             onMouseEnter={mouseOverEvent} 
                             onMouseLeave={mouseOutEvent}
-                            className='flex flex-row justify-between items-center w-full selected-text border-b font-main text-[16px] font-semibold border-[#555555] text-white' 
+                            className='flex flex-row justify-between items-center w-full selected-text border-b font-main text-[16px] font-normal leading-[22px] border-[#555555] text-white' 
                             key={item.name} 
                             onClick={() => {
                                 setValue(item.name);
