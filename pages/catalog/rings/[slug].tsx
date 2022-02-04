@@ -40,7 +40,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
         
         <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between font-main h-[calc(100vh-114px)]">
           
-          <div className="LeftPart">
+          <div className="LeftPart pb-[80px]">
             <div className="flex flex-col justify-between">
               <div className='flex flex-col space-y-[15px]'>
                 <div className={`${active === "name" ? "text-white left-0" : "text-gray left-[-25px]"} relative transition-all duration-500 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
@@ -157,11 +157,11 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
             />
           </div>
           {active === "name" && (
-            <div className="text-white font-semibold text-[16px] flex flex-col justify-between">
+            <div className="text-white font-semibold text-[16px] flex flex-col justify-between pb-[80px]">
               <h1 className="text-right text-[25px] font-medium">₽ {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h1>
               <div className="LeftPartBottom w-[304px] flex flex-col space-y-[30px]">
                   <div className="RazmerChouseHolder">
-                    <p className='mb-[10px]'>размер</p>
+                    <p className='mb-[10px] leading-[22px]'>размер</p>
                     <SizeChouser 
                       mouseOverEvent={mouseOverEvent} 
                       mouseOutEvent={mouseOutEvent} 
@@ -170,13 +170,13 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                       list={item.ring_sizes.data} />
                   </div>
                   <div className="WrapHolder">
-                    <p className="mb-[10px]">упаковка</p>
+                    <p className="mb-[10px] leading-[22px]">упаковка</p>
                     <div className='flex flex-row text-[18px] font-semibold'>
                       <button 
                         onMouseEnter={mouseOverEvent} 
                         onMouseLeave={mouseOutEvent} 
                         onClick={() => setWrapper('обычная')} 
-                        className={`${wrapper=== 'обычная' ? 'border-white' : 'border-gray text-gray'} transition-all duration-300 border px-[30px] py-[10px]`}
+                        className={`${wrapper=== 'обычная' ? 'border-white' : 'border-gray text-gray'} transition-all duration-300 border px-[29px] py-[9px] leading-[25px]`}
                       >
                         обычная
                       </button>
@@ -184,14 +184,14 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                         onMouseEnter={mouseOverEvent} 
                         onMouseLeave={mouseOutEvent} 
                         onClick={() => setWrapper('подарочная')} 
-                        className={`${wrapper=== 'подарочная' ? 'border-white' : 'border-gray text-gray'} transition-all duration-300 px-[30px] py-[10px] border border-white`}
+                        className={`${wrapper=== 'подарочная' ? 'border-white' : 'border-gray text-gray'} transition-all duration-300 px-[29px] py-[9px] border leading-[25px]`}
                       >
                         подарочная
                       </button>
                     </div>
                   </div>
-                  <div className="flex flex-row justify-between AddToCartHolder">
-                    <div className="HowMany text-[18px] text-white flex flex-row border border-white w-[108px] justify-between px-[15px] py-[10px]">
+                  <div className="flex flex-row justify-between">
+                    <div className="HowMany text-[18px] text-white flex flex-row border border-white w-[108px] justify-between px-[15px] py-[9px]">
                       <button 
                         onMouseEnter={mouseOverEvent} 
                         onMouseLeave={mouseOutEvent} 
@@ -201,7 +201,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                             <rect y="0.5" width="15" height="2" fill="white"/>
                         </svg>
                       </button>
-                      <p>{howMany}</p>
+                      <p className='leading-[25px]'>{howMany}</p>
                       <button 
                         onMouseEnter={mouseOverEvent} 
                         onMouseLeave={mouseOutEvent} 
@@ -232,7 +232,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                           dispatch({type: "setItems",payload: tempItemsInCart})
                         }
                         }} 
-                      className="py-[10px] px-[43.5px] border border-white hover:text-[#161A16] hover:bg-white"
+                      className="py-[9px] px-[43px] border border-white hover:text-[#161A16] hover:bg-white font-semibold text-[18px] leading-[25px]"
                     >
                       В корзину
                     </button>

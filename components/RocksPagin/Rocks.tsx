@@ -23,8 +23,8 @@ export default function Rocks({rocksData, setRock}:any) {
   if (Data.length > 0){
     return (
       <div className=" w-[267px] font-main space-y-[10px]">
-          <div className="flex flex-row justify-between text-white text-[16px] font-semibold">
-              <p>камень</p>
+          <div className="flex flex-row justify-between ">
+              <p className='text-white text-[16px] font-semibold leading-[22px]'>камень</p>
               {Data.length > 2 && <Pagination scroll={scroll} number={Data.length}/>}
           </div>
           <div ref={rocksDiv} className="overflow-hidden w-[265px]">

@@ -20,7 +20,7 @@ export default function Rock({rock, active, setActive, setRock}:any) {
                 height={70}
                 />
             </div>
-            <p className={`${active == rock.id ? 'text-white' : 'text-gray'} transition-all duration-300 break-word text-[15px] font-bold font-main`}>{rock.attributes.name}</p>
+            <p className={`${active == rock.id ? 'text-white' : 'text-gray'} transition-all duration-300 break-word text-[15px] font-bold font-main leading-[20px]`}>{rock.attributes.name}</p>
         </div>
     )
 }
