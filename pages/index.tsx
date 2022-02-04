@@ -20,7 +20,9 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
     <div ref={scrollRef} className=" grid grid-cols-simple2 w-[100vw] overflow-hidden pb-[95px] pt-[20px] ">
       <div className={`w-screen transition-all ease-in-out duration-1000 ${!active ? 'right-0' : 'right-[100vw]'}  pr-[50px] first-screen relative`}>
         <div className={` ${!active ? 'left-0' : 'left-[-200px]' } h-screen top-[-134px] absolute duration-1000 transition-all ease-in-out flex justify-center items-center opacity-50`}>
-          <Image src="/MainPage.jpg" width={572} height={500} alt="Jewelery Image"/>
+          <div className="w-[572px] h-[500px] relative 2xl:w-[763px] 2xl:h-[600px]">
+            <Image src="/MainPage.jpg" layout="responsive" width={572} height={500} alt="Jewelery Image"/>
+          </div>
         </div>
         <div className="h-screen top-[-134px] absolute  flex items-center z-10">
           <div className="text-white relative leading-[100px] text-[90px] font-main font-medium left-[50px]">
@@ -29,7 +31,7 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
           </div>
         </div>
         <div className="flex flex-row justify-between h-full">
-          <div className="w-[572px] h-[500px] opacity-0"></div>
+          <div className="w-[572px] h-[500px] 2xl:w-[763px] 2xl:h-[600px] opacity-0"></div>
           <div className={`${!active ? 'left-0' : 'left-[-150px]'} relative top-[5px] duration-1000 transition-all ease-in-out flex items-end`}>
             <ShowCaseItem mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[0]} />
           </div>

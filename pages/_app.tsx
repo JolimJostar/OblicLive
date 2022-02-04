@@ -1,4 +1,5 @@
 import Menu from "@components/MenuComponent/Menu";
+import Head from 'next/head';
 import {StoreProvider} from "@components/GlobalState/store"
 import type { AppProps } from "next/app";
 import "styles/main.scss";
@@ -142,7 +143,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return ( 
       <StoreProvider>
         <Layout>
-
           <Cursor outline={outline} dot={dot}/>
           <Menu mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} />
           <LazyMotion features={domAnimation}>
