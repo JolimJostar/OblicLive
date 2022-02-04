@@ -9,7 +9,6 @@ import SizeChouser from '@components/ItemPage/SizeChouser';
 
 
 export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
-
   
   const [state, dispatch] = useContext<any>(Context)
 
@@ -44,7 +43,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
           <div className="LeftPart">
             <div className="flex flex-col justify-between">
               <div className='flex flex-col space-y-[15px]'>
-                <div className={`${active === "name" ? "text-white" : "text-gray"} transition-all duration-500 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                <div className={`${active === "name" ? "text-white left-0" : "text-gray left-[-25px]"} relative transition-all duration-500 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
                   <div className='overflow-hidden w-[10px] h-[15px]'>
                     <div className={`${active === "name" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
                       <Arrow />
@@ -54,12 +53,11 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                     onMouseEnter={mouseOverEvent} 
                     onMouseLeave={mouseOutEvent} 
                     onClick={() => SetActive("name")} 
-                    className='cursor-none'
                   >
                     {item.name}
                   </button>
                 </div>
-                <div className={`${active === "har" ? "text-white" : "text-gray"} flex transition-all duration-300 ease-in-out h-[25px] flex-col-reverseflex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                <div className={`${active === "har" ? "text-white left-0" : "text-gray left-[-25px]"} relative flex transition-all duration-300 ease-in-out h-[25px] flex-col-reverseflex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
                   <div className='overflow-hidden w-[10px] h-[15px]'>
                     <div className={`${active === "har" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
                       <Arrow />
@@ -74,7 +72,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                     Характеристики
                   </button>
                 </div> 
-                <div className={`${active === "setka" ? "text-white" : "text-gray"} transition-all duration-300 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                <div className={`${active === "setka" ? "text-white left-0" : "text-gray left-[-25px]"} relative transition-all duration-300 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
                   <div className='overflow-hidden w-[10px] h-[15px]'>
                     <div className={`${active === "setka" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
                       <Arrow />
@@ -93,22 +91,22 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
               {active === "har" && (
               <div className="ActiveHar flex flex-col space-y-[46px] max-w-[566px]">
                 <div className="flex flex-col space-y-[25px] font-main ">
-                  <h1 className="text-gray text-[25px] font-medium">Описание:</h1>
-                  <p className="text-white font-normal text-[18px] max-w-[566px]">{item.desc}</p>
+                  <h1 className="text-gray text-[25px] font-medium leading-[34px]">Описание:</h1>
+                  <p className="text-white font-normal text-[18px] max-w-[566px] leading-[25px]">{item.desc}</p>
                 </div>
                 <div className="flex flex-col space-y-[25px] font-main">
-                  <h1 className="text-gray text-[25px] font-medium">Характеристики:</h1>
+                  <h1 className="text-gray text-[25px] font-medium leading-[34px]">Характеристики:</h1>
                   <div className="text-white HarHolder">
                     <div className="HarParam">
-                      <h1 className='font-semibold text-[18px]'>Металл:</h1>
+                      <h1 className='font-semibold text-[18px] leading-[25px]'>Металл:</h1>
                       <p className='font-normal text-[16px]'>{item.metal.data.attributes.name ? `${item.metal.data.attributes.name}` : ''}</p>
                     </div>
                     <div className="HarParam">
-                      <h1 className='font-semibold text-[18px]'>Камень:</h1>
+                      <h1 className='font-semibold text-[18px] leading-[25px]'>Камень:</h1>
                       <p className='font-normal text-[16px]'>Чёрный агат</p>
                     </div>
                     <div className="HarParam">
-                      <h1 className='font-semibold text-[18px]'>Размер:</h1>
+                      <h1 className='font-semibold text-[18px] leading-[25px]'>Размер:</h1>
                       <p className='font-normal text-[16px]'>15 – 26</p>
                     </div>
                   </div>

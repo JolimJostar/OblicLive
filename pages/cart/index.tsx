@@ -22,8 +22,8 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
 
     function deleteItemFromCart(itemID:any){
         const temp = [...itemsInCart].filter(item => item.id !== itemID)
-        dispatch({type: "setItems",payload: temp})
         setItemsInCart(temp)
+        dispatch({type: "setItems",payload: temp})
     }
 
     async function sendZakaz(data:any){
@@ -44,7 +44,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
     const [url, setUrl] = useState('')
  
     const [inputValues, setInputValues] = useState({
-        itemsInCart: null,
+        itemsInCart: Array,
         name: '',
         phone: '',
         email: '',
@@ -99,11 +99,13 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                                         mouseOutEvent={mouseOutEvent} 
                                         value={value} 
                                         setValue={setValue}
+                                        setInputValues={setInputValues}
+                                        inputValues={inputValues}
                                     />
                                 </div>
                                 {value === 'Самовывоз' ? 
                                     <div className='text-[18px] text-gray'>
-                                        <p>*Самовывоз по адресу: <br /> Москва, Басманный типик, 10/12</p>
+                                        <p>*Самовывоз по адресу: <br /> Большой Трехсвятительский переулок, 2/1 с.8, Москва, 109028</p>
                                     </div>
                                     
                                     : 
@@ -152,7 +154,9 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                     <h1 className='mb-[30px]'>Ваш заказ</h1>
                     <div className='flex flex-col space-y-[20px]'>
                         {itemsInCart.map((item:any) => (
-                        <CartItem key={item.id} deleteItemFromCart={deleteItemFromCart} item={item} />
+                            <div key={Math.random()}>
+                                <CartItem deleteItemFromCart={deleteItemFromCart} item={item} />
+                            </div>
                         ))}
                         
                     </div>

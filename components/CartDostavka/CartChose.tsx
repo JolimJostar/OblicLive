@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ListComponent from './ListComponent';
 
 
-export default function CartChose({value, setValue, mouseOverEvent, mouseOutEvent}:any) {
+export default function CartChose({value, setValue, setInputValues, inputValues, mouseOverEvent, mouseOutEvent}:any) {
 
     const list = [
         {name: 'Самовывоз'},
@@ -40,6 +40,8 @@ export default function CartChose({value, setValue, mouseOverEvent, mouseOutEven
                     value={value} 
                     setValue={setValue} 
                     setActive={setActive} 
+                    setInputValues={setInputValues}
+                    inputValues={inputValues}
                 />
             : 
             null

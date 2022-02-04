@@ -9,7 +9,6 @@ import SizeChouser from '@components/ItemPage/SizeChouser';
 
 
 export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
-
   
   const [state, dispatch] = useContext<any>(Context)
 
@@ -39,11 +38,83 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       <div>
         {item === undefined ? <p>Загрузка</p> :
         
-        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between">
+        <div className=" px-[50px] pt-[86px] pb-[20px] flex flex-row justify-between font-main h-[calc(100vh-114px)]">
+          
+          <div className="LeftPart">
+            <div className="flex flex-col justify-between">
+              <div className='flex flex-col space-y-[15px]'>
+                <div className={`${active === "name" ? "text-white left-0" : "text-gray left-[-25px]"} relative transition-all duration-500 ease-in-out h-[25px] flex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <div className='overflow-hidden w-[10px] h-[15px]'>
+                    <div className={`${active === "name" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
+                      <Arrow />
+                    </div>
+                  </div>
+                  <button 
+                    onMouseEnter={mouseOverEvent} 
+                    onMouseLeave={mouseOutEvent} 
+                    onClick={() => SetActive("name")} 
+                  >
+                    {item.name}
+                  </button>
+                </div>
+                <div className={`${active === "har" ? "text-white left-0" : "text-gray left-[-25px]"} relative flex transition-all duration-300 ease-in-out h-[25px] flex-col-reverseflex flex-row space-x-[15px] items-center text-[18px] font-medium`}>
+                  <div className='overflow-hidden w-[10px] h-[15px]'>
+                    <div className={`${active === "har" ? "left-0" : "left-[-10px]" } relative transition-all duration-500 ease-in-out`}>
+                      <Arrow />
+                    </div>
+                  </div>
+                  <button 
+                    onMouseEnter={mouseOverEvent} 
+                    onMouseLeave={mouseOutEvent}
+                    onClick={() => SetActive("har")}
+                    className='cursor-none'
+                  >
+                    Характеристики
+                  </button>
+                </div> 
+                
+              </div>
+              {active === "har" && (
+              <div className="ActiveHar flex flex-col space-y-[46px] max-w-[566px]">
+                <div className="flex flex-col space-y-[25px] font-main ">
+                  <h1 className="text-gray text-[25px] font-medium leading-[34px]">Описание:</h1>
+                  <p className="text-white font-normal text-[18px] max-w-[566px] leading-[25px]">{item.desc}</p>
+                </div>
+                <div className="flex flex-col space-y-[25px] font-main">
+                  <h1 className="text-gray text-[25px] font-medium leading-[34px]">Характеристики:</h1>
+                  <div className="text-white HarHolder">
+                    <div className="HarParam">
+                      <h1 className='font-semibold text-[18px] leading-[25px]'>Металл:</h1>
+                      <p className='font-normal text-[16px]'>{item.metal.data.attributes.name ? `${item.metal.data.attributes.name}` : ''}</p>
+                    </div>
+                    <div className="HarParam">
+                      <h1 className='font-semibold text-[18px] leading-[25px]'>Камень:</h1>
+                      <p className='font-normal text-[16px]'>Чёрный агат</p>
+                    </div>
+                    <div className="HarParam">
+                      <h1 className='font-semibold text-[18px] leading-[25px]'>Размер:</h1>
+                      <p className='font-normal text-[16px]'>15 – 26</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            </div>
+            {active === "name" && (
+                <div>
+                  <Rocks 
+                    mouseOverEvent={mouseOverEvent} 
+                    mouseOutEvent={mouseOutEvent} 
+                    rocksData={item.rocks.data} 
+                    setRock={setRock} 
+                  />
+                </div>
+              )}
+          </div>
+
           <div
-            className={
-              active === "name" ? "ItemMainImage" : "ItemMainImage Reposition"
-            }
+            className={`${active === "name" ? "left-[50%]" : "left-[calc(50%+310px)]"} absolute top-[50%] -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out w-[500px] h-[500px] `}
           >
             <Image
               loader={myLoader}
@@ -53,92 +124,12 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
               height={500}
             />
           </div>
-          <div className="LeftPart">
-            <div className="Tabs">
-              <div className={`${active === "name" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center`}>
-                <Arrow />
-                <button 
-                  onMouseEnter={mouseOverEvent} 
-                  onMouseLeave={mouseOutEvent} 
-                  onClick={() => SetActive("name")} 
-                  className='cursor-none'
-                >
-                  {item.name}
-                </button>
-              </div>
-              <div className={`${active === "har" ? "Tab Active" : "Tab"} flex flex-row space-x-[15px] items-center`}>
-                <Arrow />
-                <button 
-                  onMouseEnter={mouseOverEvent} 
-                  onMouseLeave={mouseOutEvent}
-                  onClick={() => SetActive("har")}
-                  className='cursor-none'
-                >
-                  Характеристики
-                </button>
-              </div> 
-              
-              {active === "name" && (
-                <div className="mt-[290px]">
-                  <Rocks 
-                    mouseOverEvent={mouseOverEvent} 
-                    mouseOutEvent={mouseOutEvent} 
-                    rocksData={item.rocks.data} 
-                    setRock={setRock} 
-                  />
-                </div>
-              )}
-            </div>
-            {active === "har" && (
-              <div className="ActiveHar flex flex-col space-y-[46px] max-w-[566px]">
-                <div className="flex flex-col space-y-[25px] font-main ">
-                  <h1 className="text-gray">Описание:</h1>
-                  <p className="text-white">{item.desc}</p>
-                </div>
-                <div className="flex flex-col space-y-[25px]">
-                  <h1 className="text-gray">Характеристики:</h1>
-                  <div className="text-white HarHolder">
-                    <div className="HarParam">
-                      <h1>Металл:</h1>
-                      <p>{item.metal.data.attributes.name ? `${item.metal.data.attributes.name}` : ''}</p>
-                    </div>
-                    <div className="HarParam">
-                      <h1>Камень:</h1>
-                      <p>Чёрный агат</p>
-                    </div>
-                    <div className="HarParam">
-                      <h1>Размер:</h1>
-                      <p>15 – 26</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-            {active === "setka" && (
-              <div className="RazmeriHolder text-white mt-[50px]">
-                <div className="RazmeriH1">
-                  <h1>Размер российский</h1>
-                  <h1>Размер европейский</h1>
-                </div>
-                <div className="Razmeri">
-                  {item.chain_sizes.data.map((size: any) => (
-                    <div
-                      className="Razmer border-b-[1px] border-white"
-                      key={size.id}
-                    >
-                      <p className="RazmerP">{size.attributes.size.toString().replace(/\./g, ',')}</p>
-                      <p className="RazmerP">{size.attributes.sizeEU.toString().replace(/\./g, ',')}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-                  )}
-          </div>
           {active === "name" && (
-            <div className="text-white font-semibold text-[16px]">
+            <div className="text-white font-semibold text-[16px] flex flex-col justify-between">
               <h1 className="text-right text-[25px] font-medium">₽ {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h1>
-              <div className="LeftPartBottom mt-[300px] w-[304px] flex flex-col space-y-[30px]">
+              <div className="LeftPartBottom w-[304px] flex flex-col space-y-[30px]">
                   <div className="RazmerChouseHolder">
+                    <p className='mb-[10px]'>размер</p>
                     <SizeChouser 
                       mouseOverEvent={mouseOverEvent} 
                       mouseOutEvent={mouseOutEvent} 
@@ -195,6 +186,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                       onClick={() => {
                         if (item){
                           const newItemInCart = {
+                            id: Math.random(),
                             name: item.name,
                             price: item.price,
                             size: size,

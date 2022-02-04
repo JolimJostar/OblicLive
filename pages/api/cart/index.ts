@@ -13,13 +13,43 @@ export default async function handler(req: any, res:any) {
 
     if (body.name && body.phone && body.email && body.summ && body.itemsInCart[0]){
 
+      let COMMENTS = `
+      Контакты клиента 
+      <br/> Почта: ${body.email} 
+      <br/> Телефон: ${body.phone} 
+      <br/> Сумма: ${body.summ}
+      <br/> Способ доставки: ${body.typeOfDelivery}
+      ${body.typeOfDelivery !== 'Самовывоз' ? 
+      `
+      <br/> Город: ${body.sity}
+      <br/> Адресс: ${body.adress}
+      `
+      : 
+      ''
+      }
+      `
+
+      body.itemsInCart.forEach((item:any, i:any) => {
+        
+        COMMENTS = COMMENTS.concat(`
+          <br/><br/>
+          <br/><br/>
+          Товар ${i}
+          <br/><br/>
+          <br/> Имя объекта: ${item.name}
+          <br/> Цена объекта: ${item.price}
+          <br/> Размер объекта: ${item.size}
+          <br/> Камень объекта: ${item.rock}
+          <br/> Кол-во объекта: ${item.amount}
+          <br/> Упаковка объекта: ${item.wrapper}
+          `)
+      });
+
       bitrix.leads.create({
 
         OPPORTUNITY: body.summ.toString(),
 
-        COMMENTS: `Контакты клиента \n\n\n
-        Почта: ${body.email}
-        Телефон: ${body.phone}`,
+        COMMENTS: COMMENTS,
 
         TITLE: body.name,
 

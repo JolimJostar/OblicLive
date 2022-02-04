@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export default function ListComponent({active, list, value, setValue, setActive, mouseOverEvent, mouseOutEvent}:any) {
+export default function ListComponent({active, list, value, setValue, setActive, setInputValues, inputValues, mouseOverEvent, mouseOutEvent}:any) {
 
     useEffect(() => {
 
@@ -33,7 +33,13 @@ export default function ListComponent({active, list, value, setValue, setActive,
                             onMouseLeave={mouseOutEvent}
                             className='flex flex-row justify-between items-center w-full selected-text border-b font-main text-[16px] font-semibold border-[#555555] text-white' 
                             key={item.name} 
-                            onClick={() => {setValue(item.name);setActive(!active)}}
+                            onClick={() => {
+                                setValue(item.name);
+                                setActive(!active);
+                                const temp = {...inputValues}
+                                temp.typeOfDelivery = item.name
+                                setInputValues(temp)
+                            }}
                         >
                             {item.name} {value === item.name && <div className='w-[11px] h-[11px] rounded-full bg-white'></div>}
                         </li>
