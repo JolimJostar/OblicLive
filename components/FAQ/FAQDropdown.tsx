@@ -9,25 +9,25 @@ export default function FAQDropdown({number, text}:any) {
         <div onClick={() => (setActive(!active))} className={`${active ? 'max-h-[1000px]' : 'max-h-[77px]'} cursor-pointer font-main flex flex-col space-y-[30px] px-[25px] py-[25px] border-b-[1px] border-b-[#555555] border-t-[1px] border-t-[#555555] overflow-hidden transition-testAnim `}>
             <div className='grid grid-cols-4'>
                 <div>
-                    <p className='font-semibold text-[20px]'>{number}</p>
-                    <p className='mt-[30px] mb-[15px]'>Окружность пальца (мм)</p>
-                    <div className='flex flex-col space-y-[10px]'>
+                    <p className='font-semibold text-[20px] leading-[27px]'>{('0' + number).slice(-2)}</p>
+                    <p className='mt-[30px] mb-[15px] text-[18px] leading-[25px] font-semibold '>Окружность пальца (мм)</p>
+                    <div className='flex flex-col space-y-[10px] leading-[22px]'>
                         <p>47</p>
                         <p>48,7</p>
                         <p>50,3</p>
                     </div>
                 </div>
                 <div>
-                    <p className='font-medium text-[18px]'>{text}</p>
-                    <p className='mt-[30px] mb-[15px]'>Размер</p>
-                    <div className='flex flex-col space-y-[10px]'>
+                    <p className='font-medium text-[18px] leading-[25px]'>{text}</p>
+                    <p className='mt-[30px] mb-[15px] leading-[25px] text-[18px] leading-[25px] font-semibold'>Размер</p>
+                    <div className='flex flex-col space-y-[10px] leading-[22px]'>
                         <p>15</p>
                         <p>15,5</p>
                         <p>16</p>
                     </div>
                 </div>
-                <div>
-                    <p className='font-medium text-[18px] text-[#555555]'>объекты</p>
+                <div className='flex justify-end'>
+                    <p className='font-medium text-[18px] text-[#555555] leading-[25px] '>Объекты</p>
                 </div>
                 <div className="flex items-center justify-end max-h-[30px]">
                     <svg className={`${active ? 'rotate-180' : ''} transition-testAnim duration-100`} width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
