@@ -248,7 +248,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
 
 export async function getServerSideProps({ params }:any) {
 
-  const data = await fetch(`https://oblic-back.herokuapp.com/api/rings?filters[slug][$eq]=${params.slug}&populate[rocks][populate]=*&populate[cover]=*&populate[ring_sizes]=*&populate[pictures]=*&populate[metal]=*`).then(res => res.json())
+  const data = await fetch(`https://oblic-backend.herokuapp.com/api/rings?filters[slug][$eq]=${params.slug}&populate[rocks][populate]=*&populate[cover]=*&populate[ring_sizes]=*&populate[pictures]=*&populate[metal]=*`).then(res => res.json())
 
 
   return {

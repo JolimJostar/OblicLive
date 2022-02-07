@@ -34,7 +34,7 @@ const CartItem = React.memo(function CartItem({item, deleteItemFromCart}:any) {
                 <div className='flex flex-row space-x-[10px]'>
                     <p className='font-medium text-[16px] leading-[22px] text-white'>₽ {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                     <p className='text-[#555] font-medium text-[16px] leading-[22px]'>X</p>
-                    <p className='font-medium text-[16px] leading-[22px] text-white'>{item.amount}</p>
+                    <p className='font-medium text-[16px] leading-[22px] text-white'>{('0' + item.amount).slice(-2)}</p>
                 </div>
             </div>
             <button className='absolute top-0 right-0' onClick={() => deleteItemFromCart(item.id)}>X</button>

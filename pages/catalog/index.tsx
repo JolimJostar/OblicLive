@@ -229,49 +229,49 @@ export async function getServerSideProps() {
     }
 
     /*Promise.all([
-        await fetch('https://oblic-back.herokuapp.com/api/products?sort=name:desc&populate[cover][fields][0]=url&populate[sizes][fields][0]=sizeRU&populate[sizes][fields][0]=sizeEU&fields=name,price,slug'),
+        await fetch('https://oblic-backend.herokuapp.com/api/products?sort=name:desc&populate[cover][fields][0]=url&populate[sizes][fields][0]=sizeRU&populate[sizes][fields][0]=sizeEU&fields=name,price,slug'),
 
         //Get sizes for rings
-        await fetch('https://oblic-back.herokuapp.com/api/sizes?sort[0]=sizeRU%3Aasc&fields[0]=sizeRU&fields[1]=sizeEU'),
+        await fetch('https://oblic-backend.herokuapp.com/api/sizes?sort[0]=sizeRU%3Aasc&fields[0]=sizeRU&fields[1]=sizeEU'),
 
 
         //Get Chains
-        await fetch('https://oblic-back.herokuapp.com/api/chains?sort=name:desc&populate[cover][fields][0]=url&populate[chain_lenghts][fields][0]=lenght&fields=name,price,slug'),
+        await fetch('https://oblic-backend.herokuapp.com/api/chains?sort=name:desc&populate[cover][fields][0]=url&populate[chain_lenghts][fields][0]=lenght&fields=name,price,slug'),
 
         //Get Earrings
-        await fetch('https://oblic-back.herokuapp.com/api/earrings?sort=name:desc&populate[cover][fields][0]=url&fields=name,price,slug'),
+        await fetch('https://oblic-backend.herokuapp.com/api/earrings?sort=name:desc&populate[cover][fields][0]=url&fields=name,price,slug'),
 
     ]).then(res => )*/
 
 
     //Get rings
-    const ringsRes = await fetch('https://oblic-back.herokuapp.com/api/rings?sort=name:desc&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&populate[ring_sizes][fields][0]=sizeEU&fields=name,price,slug')
+    const ringsRes = await fetch('https://oblic-backend.herokuapp.com/api/rings?sort=name:desc&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&populate[ring_sizes][fields][0]=sizeEU&fields=name,price,slug')
     .then(status)
     .catch(error => {return null})
     const rings = await ringsRes ? await ringsRes.json() : null
 
     //Get sizes for rings
 
-    const ringsSizesRes= await fetch('https://oblic-back.herokuapp.com/api/ring-sizes?sort[0]=size%3Aasc&fields[0]=size&fields[1]=sizeEU')
+    const ringsSizesRes= await fetch('https://oblic-backend.herokuapp.com/api/ring-sizes?sort[0]=size%3Aasc&fields[0]=size&fields[1]=sizeEU')
     .then(status)
     .catch(error => {return null})
     const ringsSizes = await ringsSizesRes ? await ringsSizesRes.json() : null
 
     //Get Chains
-    const chainsRes = await fetch('https://oblic-back.herokuapp.com/api/chains?sort=name:desc&populate[cover][fields][0]=url&populate[chain_sizes][fields][0]=size&fields=name,price,slug')
+    const chainsRes = await fetch('https://oblic-backend.herokuapp.com/api/chains?sort=name:desc&populate[cover][fields][0]=url&populate[chain_sizes][fields][0]=size&fields=name,price,slug')
     .then(status)
     .catch(error => {return null})
     const chains = await chainsRes ? await chainsRes.json() : null
 
     //Get sizes for rings
 
-    const chainsSizesRes= await fetch('https://oblic-back.herokuapp.com/api/chain-sizes?sort[0]=size%3Aasc&fields[0]=size')
+    const chainsSizesRes= await fetch('https://oblic-backend.herokuapp.com/api/chain-sizes?sort[0]=size%3Aasc&fields[0]=size')
     .then(status)
     .catch(error => {return null})
     const chainsSizes = await chainsSizesRes ? await chainsSizesRes.json() : null
 
     //Get Earrings
-    const earringsRes = await fetch('https://oblic-back.herokuapp.com/api/earrings?sort=name:desc&populate[cover][fields][0]=url&fields=name,price,slug')
+    const earringsRes = await fetch('https://oblic-backend.herokuapp.com/api/earrings?sort=name:desc&populate[cover][fields][0]=url&fields=name,price,slug')
     .then(status)
     .catch(error => {return null})
     const earrings = await earringsRes ? await earringsRes.json() : null

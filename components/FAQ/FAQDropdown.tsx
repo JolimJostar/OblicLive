@@ -19,7 +19,7 @@ export default function FAQDropdown({number, text}:any) {
                 </div>
                 <div>
                     <p className='font-medium text-[18px] leading-[25px]'>{text}</p>
-                    <p className='mt-[30px] mb-[15px] leading-[25px] text-[18px] leading-[25px] font-semibold'>Размер</p>
+                    <p className='mt-[30px] mb-[15px] text-[18px] leading-[25px] font-semibold'>Размер</p>
                     <div className='flex flex-col space-y-[10px] leading-[22px]'>
                         <p>15</p>
                         <p>15,5</p>

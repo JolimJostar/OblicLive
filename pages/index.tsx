@@ -75,7 +75,7 @@ export async function getServerSideProps() {
   }
 
 
-  const res = await fetch('https://oblic-back.herokuapp.com/api/rings?sort=name:desc&pagination[limit]=4&populate[cover][fields][0]=url&populate[ring_sizes]=*&fields=name,slug')
+  const res = await fetch('https://oblic-backend.herokuapp.com/api/rings?sort=name:desc&pagination[limit]=4&populate[cover][fields][0]=url&populate[ring_sizes]=*&fields=name,slug')
   .then(status)
   .catch(error => {return null})
   
