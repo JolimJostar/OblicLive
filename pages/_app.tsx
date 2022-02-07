@@ -179,7 +179,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </m.div>
             </AnimatePresence>
           </LazyMotion>
-
         </Layout>
       </StoreProvider>
   )
