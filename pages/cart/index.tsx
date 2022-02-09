@@ -5,6 +5,7 @@ import TestButton from '@components/TestButton';
 import React, { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import FormNameEmailPhone from '@components/Cart/FormNameEmailPhone';
+import ItemsInCart from '@components/Cart/ItemsInCart';
 
 
 export default function Index({mouseOverEvent, mouseOutEvent}:any) {
@@ -20,11 +21,6 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
         dispatch({type: "setItems",payload: []})
     }
 
-    function deleteItemFromCart(itemID:any){
-        const temp = [...itemsInCart].filter(item => item.id !== itemID)
-        setItemsInCart(temp)
-        dispatch({type: "setItems",payload: temp})
-    }
 
     async function sendZakaz(data:any){
         data = await fetch('/api/cart', {
@@ -71,10 +67,15 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
             router.push(url)
         }
         let tempSumm = 0
-        itemsInCart.map((item:any) => {
-            tempSumm = tempSumm + item.price*item.amount
-            setSumm(tempSumm)
-        })
+        console.log(itemsInCart)
+        if (itemsInCart[0]){
+            itemsInCart.map((item:any) => {
+                tempSumm = tempSumm + item.price*item.amount         
+                setSumm(tempSumm)
+            })
+        } else {
+            setSumm(0)
+        }
     }, [url, itemsInCart])
 
     return (
@@ -151,19 +152,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
                     }
                 </div>
                 <div className='w-[404px]'>
-                    <h1 className='mb-[30px] text-[25px] font-medium leading-[34px]'>Ваш заказ</h1>
-                    <div className='flex flex-col space-y-[20px]'>
-                        {itemsInCart.map((item:any) => (
-                            <div key={Math.random()}>
-                                <CartItem deleteItemFromCart={deleteItemFromCart} item={item} />
-                            </div>
-                        ))}
-                        
-                    </div>
-                    <div className='flex flex-row justify-between mt-[50px] font-medium text-[20px] leading-[27px]'>
-                        <h3>Всего:</h3>
-                        <p>₽ {summ.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
-                    </div>
+                    <ItemsInCart itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} summ={summ} />
                 </div>
             </form>
             <div className='absolute left-50 bottom-[100px]'>

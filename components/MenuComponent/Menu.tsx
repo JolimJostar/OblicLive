@@ -40,10 +40,6 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
         }
     }, []);
 
-    useEffect(() => {
-        console.log("update")
-    }, [state])
-
     return (
         <React.Fragment>
             <div className={`font-main transition-all duration-700 ease-in-out flex flex-row items-end bg-mainGray z-30 h-[114px] relative top-0${/*visible ? 'top-0' : 'top-[-114px]'*/''} left-0 w-full px-[50px] pb-[30px]`}>
