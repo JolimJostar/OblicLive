@@ -20,7 +20,7 @@ export default function TypeFilter({value, setValue, mouseOverEvent, mouseOutEve
             <FilterName 
                 mouseOverEvent={mouseOverEvent} 
                 mouseOutEvent={mouseOutEvent}
-                value={'цепи'} 
+                value={'цепь'} 
                 text={'подвески'} 
                 setValue={setValue} 
                 globalValue={value} 
@@ -31,8 +31,8 @@ export default function TypeFilter({value, setValue, mouseOverEvent, mouseOutEve
             <FilterName 
                 mouseOverEvent={mouseOverEvent} 
                 mouseOutEvent={mouseOutEvent}
-                value={'цепь'} 
-                text={'цепи'} 
+                value={'серьга'} 
+                text={'серьги'} 
                 setValue={setValue} 
                 globalValue={value} 
             /> 

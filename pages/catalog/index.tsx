@@ -98,7 +98,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                 filterItems(chains)
             } else if ( typeOfFilter === 'кольцо' ) {
                 filterItems(rings)
-            } else if ( typeOfFilter === 'серьги' ) {
+            } else if ( typeOfFilter === 'серьга' ) {
                 filterItems(earrings)
             } else {
                 filterItems(unfilteredItems)
@@ -157,16 +157,16 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                     setGreaterThanNumber={setGreaterThanNumber} 
                                 />
                             </div>
-                            <div className='flex flex-col space-y-[15px]'>
-                                <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>{typeOfFilter !== 'цепь' ? 'размер:' : 'длинна цепи:'}</p>
+                            <div className={`flex flex-col space-y-[15px] ${typeOfFilter === 'серьга' && 'hidden'}`}>
+                                <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>{typeOfFilter === 'кольцо' || typeOfFilter === null ? 'размер:' : 'длинна цепи:'}</p>
                                 <SizeFilter 
                                     ringsSizes={ringsSizes}
                                     chainsSizes={chainsSizes}
                                     mouseOverEvent={mouseOverEvent} 
                                     mouseOutEvent={mouseOutEvent}
                                     typeOfFilter={typeOfFilter} 
-                                    value={typeOfFilter !== 'цепь' ? sizeFilter : lenghtFilter } 
-                                    setValue={ typeOfFilter !== 'цепь' ? setSizeFilter : setLenghtFilter } 
+                                    value={ typeOfFilter === 'кольцо' || typeOfFilter === null ? sizeFilter :  lenghtFilter } 
+                                    setValue={ typeOfFilter === 'кольцо' || typeOfFilter === null ? setSizeFilter : setLenghtFilter } 
                                 />
                             </div>
                         </div>
