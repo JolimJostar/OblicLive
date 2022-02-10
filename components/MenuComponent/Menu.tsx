@@ -98,8 +98,8 @@ export default function Menu({mouseOverEvent, mouseOutEvent}:any) {
                             </Link>
                         </div>
                     </div>
-                    <div className="flex flex-row w-[80px] justify-between">
-                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="flex flex-row w-[80px] justify-end">
+                    <svg className='hidden' width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M24.3125 12.5712C24.3125 6.04792 19.0232 0.758667 12.5 0.758667C5.97676 0.758667 0.6875 6.04792 0.6875 12.5712C0.6875 18.4669 5.00645 23.3538 10.6543 24.2408V15.9868H7.65424V12.5712H10.6543V9.96873C10.6543 7.00874 12.4183 5.3724 15.1162 5.3724C16.4087 5.3724 17.7608 5.60337 17.7608 5.60337V8.51062H16.2705C14.804 8.51062 14.3452 9.42082 14.3452 10.3563V12.5712H17.621L17.0979 15.9868H14.3457V24.2418C19.9936 23.3553 24.3125 18.4685 24.3125 12.5712Z" fill="white"/>
                     </svg>
                     <a onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent} href="https://www.instagram.com/oblic.jewelry/" rel="noreferrer" target="_blank" >

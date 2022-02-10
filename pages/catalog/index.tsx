@@ -182,7 +182,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                         </div>
                     </div>
                 </div>
-                <div ref={ref} className="flex flex-wrap w-[calc(100%+30px)] space-y-reverse space-x-reverse space-y-[50px] space-x-[30px]">
+                <div ref={ref} className="flex flex-wrap w-full space-y-reverse space-x-reverse space-y-[50px] space-x-[30px]">
                     {filteredItems ? filteredItems.map((item:any, id:any) => 
                             <div key={item.attributes.slug} className={id === 0 ? 'mr-[30px] mb-[50px]' : ''}>
                                 <div className="relative text-[0px]">
