@@ -11,26 +11,19 @@ export default function Pagination({scroll, number, mouseOverEvent, mouseOutEven
         setCount(countPush)
     }    
 
-    const [isActive, setIsActive] = useState(false);
     const [count, setCount] = useState([''])
     const [activeIndex, setActiveIndex] = useState([0, 1])
 
     function handlePagChange(sign:String) {
-        if (sign === '+' && activeIndex[1]<count.length-1 && !isActive){
-            setIsActive(true)
+        if (sign === '+' && activeIndex[1]<count.length-1){
             setActiveIndex([activeIndex[0]+1, activeIndex[1]+1]); 
-            scroll(145)
-            setTimeout(()=>{setIsActive(false)}, 250)
-            return undefined
+            scroll(145 * activeIndex[1])   
         }
-        if (sign === '-' && activeIndex[0]!= 0 && !isActive){
-            setIsActive(true)
+        if (sign === '-' && activeIndex[0]!= 0){
             setActiveIndex([activeIndex[0]-1, activeIndex[1]-1]); 
-            scroll(-145)
-            setTimeout(()=>{setIsActive(false)}, 250)
-            return undefined
+            scroll(145 * (activeIndex[0] - 1))    
         }
-        return undefined
+        
     }
 
     useEffect(() => {

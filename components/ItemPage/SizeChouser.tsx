@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ListComponent from './ListComponent';
 
 
-export default function SizeChouser({size, setSize, list, mouseOverEvent, mouseOutEvent}:any) {
+export default function SizeChouser({size, setSize, list, mouseOverEvent, mouseOutEvent, highlightSize, setHighlightSize}:any) {
 
     const [active, setActive] = useState(false)
-
-        
+    
     
     return (
-        <div>
+        <div className={` ${highlightSize ? 'shadow-xl shadow-red-900 duration-300' : 'shadow-none duration-700'} transition-all ease-in-out`}>
             <div    
-                className={` border-b border-white  h-[35px] pb-[10px] font-main font-semibold text-[18px] custom-select-option transition-testAnim duration-200 w-full items-center flex flex-row justify-between`} 
+                className={`  border-b border-white  h-[35px] pb-[10px] font-main font-semibold text-[18px] custom-select-option transition-testAnim duration-200 w-full items-center flex flex-row justify-between`} 
                 onClick={() => (setActive(!active))}
                 onMouseEnter={mouseOverEvent} 
                 onMouseLeave={mouseOutEvent}

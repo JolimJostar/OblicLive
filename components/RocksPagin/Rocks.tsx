@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Rocks({rocksData, setRock, mouseOverEvent, mouseOutEvent}:any) {
   const [Data, SetData] = useState<any>({})
-  const [active, setActive] = useState(undefined)
+  const [active, setActive] = useState(8)
   const rocksDiv = useRef<any>(null);
   
 
@@ -16,7 +16,7 @@ export default function Rocks({rocksData, setRock, mouseOverEvent, mouseOutEvent
 
   function scroll(howMuch:number) {
     if (rocksDiv.current && rocksDiv){
-      rocksDiv.current.scrollBy({left: howMuch, behavior: 'smooth'})
+      rocksDiv.current.scroll({left: howMuch, behavior: 'smooth'})
     }
   }
 
