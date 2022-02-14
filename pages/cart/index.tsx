@@ -40,7 +40,7 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
     const [url, setUrl] = useState('')
  
     const [inputValues, setInputValues] = useState({
-        itemsInCart: Array,
+        itemsInCart: [],
         name: '',
         phone: '',
         email: '',
@@ -157,10 +157,11 @@ export default function Index({mouseOverEvent, mouseOutEvent}:any) {
             </form>
             <div className='absolute left-50 bottom-[100px]'>
                     <button 
+                        disabled={itemsInCart[0] ? false : true}
                         onMouseEnter={mouseOverEvent} 
                         onMouseLeave={mouseOutEvent} 
                         type='submit' 
-                        className='hover:bg-white hover:text-[#161A16] border border-white px-[30px] py-[10px] font-semibold text-[18px] leading-[24px] font-main'
+                        className={`${itemsInCart[0] ? 'hover:bg-white hover:text-[#161A16] border-white ' : 'border-gray text-gray'} border px-[30px] py-[10px] font-semibold text-[18px] leading-[24px] font-main`}
                     >
                         {summ < 60000 ? 'Оформить заказ' : 'Оформить запрос на покупку'}
                     </button>

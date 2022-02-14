@@ -20,7 +20,7 @@ export default function ItemsInCart({itemsInCart, setItemsInCart, summ}:any) {
         <h1 className='mb-[30px] text-[25px] font-medium leading-[34px]'>Ваш заказ</h1>
         <div className='flex flex-col space-y-[20px]'>
             {itemsInCart.map((item:any) => (
-                <div key={Math.random()}>
+                <div key={item.id}>
                     <CartItem deleteItemFromCart={deleteItemFromCart} item={item} />
                 </div>
             ))}
