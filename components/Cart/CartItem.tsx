@@ -23,7 +23,7 @@ const CartItem = React.memo(function CartItem({item, deleteItemFromCart}:any) {
             </div>
             <div className='flex flex-col space-y-[10px] font-medium'>
                 <p className=' text-[18px] leading-[25px] font-medium'>{item.name}</p>
-                <div className='flex flex-row space-x-[25px] text-[16px]'>
+                <div className='flex flex-row space-x-[25px] text-[16px] h-[22px]'>
                     <div className='flex flex-row'>
                         <p className='text-[#555] text-[16px] leading-[22px] font-medium'>Размер:&nbsp;</p><p className='text-[16px] leading-[22px] font-medium text-white'> {item.size}</p>
                     </div>
