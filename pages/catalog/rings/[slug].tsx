@@ -58,12 +58,14 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   }
 
   useEffect(() => {
+    if (item.pictures.data){
       const temp = (item.pictures.data.filter((pic:any) => pic.attributes.caption === selectedRock))
       if (temp[0]){
         setUrl(temp[0].attributes.url)
       } else {
         setUrl(item.cover.data.attributes.url)
       }
+    }
   }, [selectedRock])
   
 
