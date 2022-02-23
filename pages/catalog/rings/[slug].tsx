@@ -19,7 +19,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   const [active, SetActive] = useState("name")
   const [selectedRock, setRock] = useState("Чёрный агат")
   const [wrapper, setWrapper] = useState("обычная")
-
+  
 
   function handleAddToCart() {
     if (item && size){
@@ -58,7 +58,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   }
 
   useEffect(() => {
-    if (item.pictures.data[0]){
+    if (item.pictures.data){
       const temp = (item.pictures.data.filter((pic:any) => pic.attributes.caption === selectedRock))
       if (temp[0]){
         setUrl(temp[0].attributes.url)
