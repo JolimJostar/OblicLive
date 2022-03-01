@@ -222,9 +222,6 @@ export async function getStaticProps() {
     
 
     function status(res:any){
-        if (!res.ok) {
-            throw new Error(res.statusText)
-        }
         return res
     }
 
@@ -247,34 +244,28 @@ export async function getStaticProps() {
     //Get rings
     const ringsRes = await fetch('https://oblic-backend.herokuapp.com/api/rings?sort=name:desc&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&populate[ring_sizes][fields][0]=sizeEU&fields=name,price,slug')
     .then(status)
-    .catch(error => {return null})
-    const rings = await ringsRes ? await ringsRes.json() : null
+    const rings = await ringsRes.json()
 
     //Get sizes for rings
 
     const ringsSizesRes= await fetch('https://oblic-backend.herokuapp.com/api/ring-sizes?sort[0]=size%3Aasc&fields[0]=size&fields[1]=sizeEU')
     .then(status)
-    .catch(error => {return null})
-    const ringsSizes = await ringsSizesRes ? await ringsSizesRes.json() : null
+    const ringsSizes = await ringsSizesRes.json()
 
     //Get Chains
     const chainsRes = await fetch('https://oblic-backend.herokuapp.com/api/chains?sort=name:desc&populate[cover][fields][0]=url&populate[chain_sizes][fields][0]=size&fields=name,price,slug')
     .then(status)
-    .catch(error => {return null})
-    const chains = await chainsRes ? await chainsRes.json() : null
+    const chains = await chainsRes.json()
 
     //Get sizes for rings
 
     const chainsSizesRes= await fetch('https://oblic-backend.herokuapp.com/api/chain-sizes?sort[0]=size%3Aasc&fields[0]=size')
     .then(status)
-    .catch(error => {return null})
-    const chainsSizes = await chainsSizesRes ? await chainsSizesRes.json() : null
-
+    const chainsSizes = await chainsSizesRes.json()
     //Get Earrings
     const earringsRes = await fetch('https://oblic-backend.herokuapp.com/api/earrings?sort=name:desc&populate[cover][fields][0]=url&fields=name,price,slug')
     .then(status)
-    .catch(error => {return null})
-    const earrings = await earringsRes ? await earringsRes.json() : null
+    const earrings = await earringsRes.json()
 
 
     return {
