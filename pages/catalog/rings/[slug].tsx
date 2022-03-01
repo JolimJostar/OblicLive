@@ -66,8 +66,8 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
     }
   }, [selectedRock])
 
-  if (!item.cover.data) return null
 
+  
   return (
     <div>
       <div>

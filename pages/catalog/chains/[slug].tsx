@@ -30,7 +30,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
     return `${src}`
   }
 
-  if (!item.cover.data) return null
+  
 
   return (
     <div>
