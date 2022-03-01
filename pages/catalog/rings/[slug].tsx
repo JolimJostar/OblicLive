@@ -231,7 +231,8 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
 export async function getStaticPaths(){
   const ringsRes = await fetch('https://oblic-backend.herokuapp.com/api/rings?sort=name:desc&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&populate[ring_sizes][fields][0]=sizeEU&fields=name,price,slug').then(res => {return res})
   const rings = await ringsRes.json()
-  const paths = rings.data.map((item: any) =>({
+  const paths = rings.data.map((item: any) =>(
+    console.log(item.attributes.cover.data.attributes.url),{
     params: {slug: item.attributes.slug}
   }))
   return { paths, fallback: true }
