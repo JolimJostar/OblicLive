@@ -19,8 +19,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   const [highlightSize, setHighlightSize] = useState(false)
   const [active, SetActive] = useState("name")
   const [selectedRock, setRock] = useState("Чёрный агат")
-  
-  if (!item.cover.data) return null
 
   function handleAddToCart() {
     if (item && size){
@@ -67,6 +65,8 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       }
     }
   }, [selectedRock])
+
+  if (!item.cover.data) return null
 
   return (
     <div>
