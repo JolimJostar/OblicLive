@@ -177,6 +177,15 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   )
 }
 
+export async function getStaticPaths(){
+  const chainsRes = await fetch('https://oblic-backend.herokuapp.com/api/chains?sort=name:desc&populate[cover][fields][0]=url&populate[chain_sizes][fields][0]=size&fields=name,price,slug')
+  const chains = await chainsRes.json()
+  const paths = chains.data.map((item: any) =>({
+    params: {slug: item.attributes.slug}
+  }))
+  return { paths, fallback: true }
+}
+
 export async function getStaticProps({ params }:any) {
 
   const data = await fetch(`https://oblic-backend.herokuapp.com/api/chains?filters[slug][$eq]=${params.slug}&populate[rocks][populate]=*&populate[cover]=*&populate[chain_sizes]=*&populate[pictures]=*&populate[metal]=*`).then(res => res.json())

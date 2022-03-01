@@ -228,6 +228,15 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   )
 }
 
+export async function getStaticPaths(){
+  const ringsRes = await fetch('https://oblic-backend.herokuapp.com/api/rings?sort=name:desc&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&populate[ring_sizes][fields][0]=sizeEU&fields=name,price,slug').then(res => {return res})
+  const rings = await ringsRes.json()
+  const paths = rings.data.map((item: any) =>({
+    params: {slug: item.attributes.slug}
+  }))
+  return { paths, fallback: true }
+}
+
 export async function getStaticProps({ params }:any) {
 
   const data = await fetch(`https://oblic-backend.herokuapp.com/api/rings?filters[slug][$eq]=${params.slug}&populate[rocks][populate][0]=cover&populate[cover]=*&populate[ring_sizes]=*&populate[pictures]=*&populate[metal]=*`).then(res => res.json())

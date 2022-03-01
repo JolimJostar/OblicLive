@@ -168,6 +168,16 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   )
 }
 
+export async function getStaticPaths(){
+  const earringsRes = await fetch('https://oblic-backend.herokuapp.com/api/earrings?sort=name:desc&populate[cover][fields][0]=url&fields=name,price,slug')
+  const earrings = await earringsRes.json()
+  const paths = earrings.data.map((item: any) =>({
+    params: {slug: item.attributes.slug}
+  }))
+  return { paths, fallback: true }
+}
+
+
 export async function getStaticProps({ params }:any) {
 
   const data = await fetch(`https://oblic-backend.herokuapp.com/api/earrings?filters[slug][$eq]=${params.slug}&populate[rocks][populate]=*&populate[cover]=*&populate[pictures]=*&populate[metal]=*`).then(res => res.json())
