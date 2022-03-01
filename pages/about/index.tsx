@@ -14,7 +14,16 @@ export default function index() {
                 </div>
                 <div className='w-[480px] flex flex-col space-y-[30px] ml-[80px] relative top-[10px]'>
                     <h1 className='font-medium text-[65px] leading-[89px]'>— идея бренда</h1>
-                    <p className='text-[20px] font-normal leading-[30px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p className='text-[20px] font-normal leading-[30px]'>Эстетика ювелирных объектов бренда oblic вдохновлена сильными людьми, способными признавать свои слабости.
+<br />
+<br />
+Идеальных персон не бывает, но каждый из нас несет
+в себе то, что меняет окружающее пространство
+и само сознание.
+<br />
+<br />
+Это лаконичный инструмент, который помогает раскрыть в человеке глубинный порыв, преобразующий намерения в действительность.
+</p>
                 </div>
             </div>
             <div className='mt-[120px] h-[580px] pl-[50px] flex flex-row justify-between'>

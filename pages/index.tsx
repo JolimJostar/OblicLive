@@ -65,7 +65,7 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
 
 export default Home;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   function status(res:any){
     if (!res.ok) {
@@ -74,16 +74,30 @@ export async function getServerSideProps() {
     return res
   }
 
+  const urls = [
+    //Ссылки на объекты бэка , что бы запихнуть в Promise.all
+    //Предмет получаем фильтруя его по имени через REST api strapi
+    //Объект 09
+    'https://oblic-backend.herokuapp.com/api/chains?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9609&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug',
+    //Объект 28
+    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9628&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug',
+    //Объект 06
+    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%20%E2%84%9606&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug',
+    //
+    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9621&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug'
+  ]
 
-  const res = await fetch('https://oblic-backend.herokuapp.com/api/rings?sort=name:desc&pagination[limit]=4&populate[cover][fields][0]=url&populate[ring_sizes]=*&fields=name,slug')
-  .then(status)
-  .catch(error => {return null})
-  
-  const data = await res ? await res.json() : null
+
+  const data = await Promise.all(urls.map(async u => {
+    const res = await fetch(u);
+    return res.json()
+  }))
+
+  console.log(data[0].data[0].attributes)
 
   return {
     props: {
-      items: data.data
+      items: [data[0].data[0], data[1].data[0], data[2].data[0], data[3].data[0] ]
     },
   }
 }

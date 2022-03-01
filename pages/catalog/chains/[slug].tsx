@@ -16,7 +16,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   const [size, setSize] = useState("");
   const [active, SetActive] = useState("name")
   const [selectedRock, setRock] = useState("")
-  const [wrapper, setWrapper] = useState("обычная")
 
   function changeHowMany(value: string) {
     if (value === "-" && howMany > 1) {
@@ -81,21 +80,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                   <p className="text-white font-normal text-[18px] max-w-[566px] leading-[25px]">{item.desc}</p>
                 </div>
                 <div className="flex flex-col space-y-[25px] font-main">
-                  <h1 className="text-gray text-[25px] font-medium leading-[34px]">Характеристики:</h1>
-                  <div className="text-white HarHolder">
-                    <div className="HarParam">
-                      <h1 className='font-semibold text-[18px] leading-[25px]'>Металл:</h1>
-                      <p className='font-normal text-[16px]'>{item.metal.data.attributes.name ? `${item.metal.data.attributes.name}` : ''}</p>
-                    </div>
-                    <div className="HarParam">
-                      <h1 className='font-semibold text-[18px] leading-[25px]'>Камень:</h1>
-                      <p className='font-normal text-[16px]'>Чёрный агат</p>
-                    </div>
-                    <div className="HarParam">
-                      <h1 className='font-semibold text-[18px] leading-[25px]'>Размер:</h1>
-                      <p className='font-normal text-[16px]'>15 – 26</p>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             )}
@@ -137,27 +122,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                       setSize={setSize} 
                       list={item.chain_sizes.data} />
                   </div>
-                  <div className="WrapHolder">
-                    <p className="mb-[10px]">упаковка</p>
-                    <div className='flex flex-row text-[18px] font-semibold'>
-                      <button 
-                        onMouseEnter={mouseOverEvent} 
-                        onMouseLeave={mouseOutEvent} 
-                        onClick={() => setWrapper('обычная')} 
-                        className={`${wrapper=== 'обычная' ? 'border-white' : 'border-gray text-gray'} transition-all duration-300 border px-[30px] py-[10px]`}
-                      >
-                        обычная
-                      </button>
-                      <button 
-                        onMouseEnter={mouseOverEvent} 
-                        onMouseLeave={mouseOutEvent} 
-                        onClick={() => setWrapper('подарочная')} 
-                        className={`${wrapper=== 'подарочная' ? 'border-white' : 'border-gray text-gray'} transition-all duration-300 px-[30px] py-[10px] border border-white`}
-                      >
-                        подарочная
-                      </button>
-                    </div>
-                  </div>
                   <div className="flex flex-row justify-between AddToCartHolder">
                     <div className="HowMany text-[18px] text-white flex flex-row border border-white w-[108px] justify-between px-[15px] py-[10px]">
                       <button 
@@ -192,7 +156,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
                             size: size,
                             rock: selectedRock,
                             amount: howMany,
-                            wrapper: wrapper,
                             pic: item.cover.data.attributes.url,
                           }
                           const tempItemsInCart = [...state.itemsInCart]
@@ -214,7 +177,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   )
 }
 
-export async function getServerSideProps({ params }:any) {
+export async function getStaticProps({ params }:any) {
 
   const data = await fetch(`https://oblic-backend.herokuapp.com/api/chains?filters[slug][$eq]=${params.slug}&populate[rocks][populate]=*&populate[cover]=*&populate[chain_sizes]=*&populate[pictures]=*&populate[metal]=*`).then(res => res.json())
 

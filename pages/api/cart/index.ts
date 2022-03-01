@@ -41,7 +41,6 @@ export default async function handler(req: any, res:any) {
           <br/> Размер объекта: ${item.size}
           <br/> Камень объекта: ${item.rock}
           <br/> Кол-во объекта: ${item.amount}
-          <br/> Упаковка объекта: ${item.wrapper}
           `)
       });
 

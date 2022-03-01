@@ -157,7 +157,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                     setGreaterThanNumber={setGreaterThanNumber} 
                                 />
                             </div>
-                            <div className={`flex flex-col space-y-[15px] ${typeOfFilter === 'серьга' && 'hidden'}`}>
+                            <div className={`flex flex-col space-y-[15px] ${typeOfFilter === 'серьга' || !typeOfFilter && 'hidden'}`}>
                                 <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>{typeOfFilter === 'кольцо' || typeOfFilter === null ? 'размер:' : 'длинна цепи:'}</p>
                                 <SizeFilter 
                                     ringsSizes={ringsSizes}
@@ -217,7 +217,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
     )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
     
 
