@@ -11,7 +11,6 @@ import SizeChouser from '@components/ItemPage/SizeChouser';
 
 export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   
-  if (!item.cover.data) return null
 
   const [state, dispatch] = useContext<any>(Context)
   const [url, setUrl] = useState(item.cover.data.attributes.url)
@@ -21,6 +20,7 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   const [active, SetActive] = useState("name")
   const [selectedRock, setRock] = useState("Чёрный агат")
   
+  if (!item.cover.data) return null
 
   function handleAddToCart() {
     if (item && size){
