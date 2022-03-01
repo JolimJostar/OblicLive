@@ -11,6 +11,8 @@ import SizeChouser from '@components/ItemPage/SizeChouser';
 
 export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   
+  if (!item.cover.data) return null
+
   const [state, dispatch] = useContext<any>(Context)
   const [url, setUrl] = useState(item.cover.data.attributes.url)
   const [howMany, setHowMany] = useState(1)
@@ -65,7 +67,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
       }
     }
   }, [selectedRock])
-  
 
   return (
     <div>
