@@ -11,15 +11,28 @@ import SizeChouser from '@components/ItemPage/SizeChouser';
 
 export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
   
-
+  
   const [state, dispatch] = useContext<any>(Context)
-  const [url, setUrl] = useState(item.cover.data.attributes.url)
+  const [url, setUrl] = useState(item?.cover?.data?.attributes?.url)
   const [howMany, setHowMany] = useState(1)
   const [size, setSize] = useState("")
   const [highlightSize, setHighlightSize] = useState(false)
   const [active, SetActive] = useState("name")
   const [selectedRock, setRock] = useState("Чёрный агат")
+  
+  useEffect(() => {
+    if (item.pictures.data){
+      const temp = (item.pictures.data.filter((pic:any) => pic.attributes.caption === selectedRock))
+      if (temp[0]){
+        setUrl(temp[0].attributes.url)
+      } else {
+        setUrl(item.cover.data.attributes.url)
+      }
+    }
+  }, [selectedRock])
 
+  if (!item?.cover?.data?.attributes?.url) return null
+  
   function handleAddToCart() {
     if (item && size){
       const newItemInCart = {
@@ -55,16 +68,6 @@ export default function Index({item, mouseOverEvent, mouseOutEvent}:any) {
     return `${src}`
   }
 
-  useEffect(() => {
-    if (item.pictures.data){
-      const temp = (item.pictures.data.filter((pic:any) => pic.attributes.caption === selectedRock))
-      if (temp[0]){
-        setUrl(temp[0].attributes.url)
-      } else {
-        setUrl(item.cover.data.attributes.url)
-      }
-    }
-  }, [selectedRock])
 
 
   
