@@ -16,6 +16,7 @@ export default function ShowCaseItem({item, mouseOverEvent, mouseOutEvent}:any) 
               height={388}
               layout='responsive'
               objectFit='cover'
+              unoptimized
             />
           </div>
           <div className="flex flex-row justify-between font-main font-semibold mt-[25px] 2xl:mt-[30px]">

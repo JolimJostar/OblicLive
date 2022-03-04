@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image";
+import { useRouter } from 'next/router'
 
 export default function index() {
+
+
+    const [able, setAble] = useState(true)
+    const router = useRouter()
+    const {query} = useRouter()
+     
+    useEffect(() =>{
+        if (query.scrolable){
+            const onWheel = (e: any) => {
+                setAble(false)
+                if (e.deltaY < 0 && window.scrollY===0 && able){
+                    router.push('/')
+                }
+                setTimeout(()=>setAble(true), 1000)
+            }
+            window.addEventListener("wheel", onWheel)
+            return () => window.removeEventListener("wheel", onWheel)
+        }
+    }, [able])
+
     return (
         <div className="relative px-[50px] pb-[50px] pt-[77px] text-white font-main max-w-[1440px] mx-auto -my-0">
             <h1 className='gradient-text font-main font-light text-[80px] text-white inline-block leading-[110px]'>Сущность oblic</h1>

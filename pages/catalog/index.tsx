@@ -73,10 +73,6 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
     function filterItems(type:any){
         setFilteredItems(type.filter((item:any) => {
             if (greaterThanNumber || smallerThanNumber || sizeFilter || lenghtFilter){
-                console.log(checkSizeTrue(sizeFilter, item))
-                console.log(checkIfGreaterThanTrue(greaterThanNumber, item))
-                console.log(checkIfSmallerThanTrue(smallerThanNumber, item))
-                console.log(checkLenghtTrue(lenghtFilter, item))
                 return (
                     checkIfGreaterThanTrue(greaterThanNumber, item)
                     &&
@@ -157,7 +153,7 @@ export default function Index({rings, ringsSizes, chains, chainsSizes, earrings,
                                     setGreaterThanNumber={setGreaterThanNumber} 
                                 />
                             </div>
-                            <div className={`flex flex-col space-y-[15px] ${typeOfFilter === 'серьга' || !typeOfFilter && 'hidden'}`}>
+                            <div className={`flex flex-col space-y-[15px] ${typeOfFilter === 'серьга' && 'hidden' } ${!typeOfFilter && 'hidden'}`}>
                                 <p className='text-gray font-semibold text-[18px] font-main leading-[25px]'>{typeOfFilter === 'кольцо' || typeOfFilter === null ? 'размер:' : 'длинна цепи:'}</p>
                                 <SizeFilter 
                                     ringsSizes={ringsSizes}

@@ -21,7 +21,7 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
       <div className={`w-screen transition-all ease-in-out duration-1000 ${!active ? 'right-0' : 'right-[100vw]'}  pr-[50px] first-screen relative`}>
         <div className={` ${!active ? 'left-0' : 'left-[-200px]' } h-screen top-[-134px] absolute duration-1000 transition-all ease-in-out flex justify-center items-center opacity-50`}>
           <div className="w-[572px] h-[500px] relative 2xl:w-[763px] 2xl:h-[600px]">
-            <Image src="/MainPage.jpg" layout="responsive" width={572} height={500} alt="Jewelery Image"/>
+            <Image src="/MainPage.jpg" layout="responsive" unoptimized width={572} height={500} alt="Jewelery Image"/>
           </div>
         </div>
         <div className="h-screen top-[-134px] absolute  flex items-center z-10">
@@ -50,7 +50,7 @@ const Home: NextPage = ({items, mouseOverEvent, mouseOutEvent}:any) => {
         </div>
       <div className={`${active ? 'right-[100vw]' : 'right-0'} ease-in-out transition-all duration-1000 relative w-screen first-screen flex flex-row justify-between pl-[50px] pr-[62px] `}>
           <div className={` ${active ? 'left-0' : 'left-[50px]' } relative duration-1000 transition-all ease-in-out flex justify-center items-center`}>
-            <Image src="/MainPageSecond.jpg" width={510} height={666} alt="Man in Jewelery Image"/>
+            <Image src="/MainPageSecond.jpg" width={510} height={666} unoptimized alt="Man in Jewelery Image"/>
           </div>
           <div className={`${active ? 'left-0' : 'left-[150px]'} transition-all duration-1000 ease-in-out flex items-start top-[28px] relative`}>
             <ShowCaseItem mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} item={items[2]} />
