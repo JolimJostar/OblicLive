@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import { useRouter } from 'next/router'
 
-export default function index() {
+export default function Index() {
 
 
     const [able, setAble] = useState(true)
