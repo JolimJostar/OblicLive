@@ -1,11 +1,12 @@
 
-import { useRef, useEffect, useState} from "react";
+import { useRef, useEffect} from "react";
 import { useRouter } from 'next/router'
+
+let able = true;
 
 export function useHorizontalScroll({active, setActive}:any) {
   const elRef = useRef(); 
   const router = useRouter()
-  const [able, setAble] = useState(true)
 
   useEffect(() => {
     const el:any = elRef.current;
@@ -14,13 +15,13 @@ export function useHorizontalScroll({active, setActive}:any) {
         if (e.deltaY == 0 || !able) {};
         e.preventDefault();
         if (e.deltaY > 0 && !active && able){
-          setAble(false)
+          able = false
           setActive(true)
-          setTimeout(()=>setAble(true), 700)
+          setTimeout(()=>able = true, 700)
         } else if (e.deltaY < 0 && active && able){   
-          setAble(false)
+          able = false
           setActive(false)
-          setTimeout(()=>setAble(true), 700)
+          setTimeout(()=>able = true, 700)
         } else if (e.deltaY > 0 && active && able){
           router.push({
             pathname: '/about',
@@ -31,6 +32,6 @@ export function useHorizontalScroll({active, setActive}:any) {
       el.addEventListener("wheel", onWheel);
       return () => el.removeEventListener("wheel", onWheel);
     }
-  }, [active, able]);
+  }, [active, router, setActive]);
   return elRef;
 }

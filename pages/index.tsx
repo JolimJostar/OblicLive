@@ -78,13 +78,13 @@ export async function getStaticProps() {
     //Ссылки на объекты бэка , что бы запихнуть в Promise.all
     //Предмет получаем фильтруя его по имени через REST api strapi
     //Объект 09
-    'https://oblic-backend.herokuapp.com/api/chains?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9609&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug',
+    'https://oblic-backend.herokuapp.com/api/chains?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9609&pagination[limit]=1&populate[chain_sizes][fields][0]=size&populate[cover][fields][0]=url&fields=name,slug',
     //Объект 28
-    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9628&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug',
+    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9628&pagination[limit]=1&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&fields=name,slug',
     //Объект 06
-    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%20%E2%84%9606&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug',
+    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%20%E2%84%9606&pagination[limit]=1&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&fields=name,slug',
     //
-    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9621&pagination[limit]=1&populate[cover][fields][0]=url&fields=name,slug'
+    'https://oblic-backend.herokuapp.com/api/rings?filters[name][$eq]=%D0%9E%D0%B1%D1%8A%D0%BA%D0%B5%D1%82%20%E2%84%9621&pagination[limit]=1&populate[cover][fields][0]=url&populate[ring_sizes][fields][0]=size&fields=name,slug'
   ]
 
 
